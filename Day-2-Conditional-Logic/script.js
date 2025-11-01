@@ -82,3 +82,14 @@ function isLeapYear(year) {
   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
 console.log(isLeapYear(1900));
+
+/* Check a Character is Uppercase , Lowercase, Digit or Special Character */
+
+function checkCharacterType(char) {
+  if (char >= 'a' && char <= 'z') return 'Lowercase Letter';
+  else if (char >= 'A' && char <= 'Z') return 'Uppercase Letter';
+  else if (char >= 0 && char <= 9) return 'Digit';
+}
+
+ 
+console.log(checkCharacterType("a"))
