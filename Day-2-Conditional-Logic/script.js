@@ -10,3 +10,21 @@ function getThreeNumMax(a, b, c) {
 }
 
 console.log(getThreeNumMax(-1, -2, -3));
+
+/* Check if a Number is +ve , -ve or zero: 
+ Approach: if we divide any number by 1 then we get the +ve if it is greater than 0 and if this is not a case then we get either 0 or -ve numbers right so let's convert this approach into code
+*/
+
+function checkNum(n) {
+  if (typeof n !== 'number') {
+    throw Error('argument is not valid');
+  }
+
+  return n / 1 > 1 ? 'Positive' : n / 1 < 0 ? 'Negative' : 'Zero';
+}
+
+console.log(checkNum(-2 / 1));
+
+
+
+
