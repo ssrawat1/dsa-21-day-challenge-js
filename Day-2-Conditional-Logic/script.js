@@ -91,5 +91,50 @@ function checkCharacterType(char) {
   else if (char >= 0 && char <= 9) return 'Digit';
 }
 
- 
-console.log(checkCharacterType("a"))
+console.log(checkCharacterType('a'));
+
+/* Check Triangle Type Using Sides and Angles:
+  Right angled Triangle: a^2 +b^2 = c^2
+  Equilateral Triangle : All 3 sides equal(All angles = 60°)
+  Isosceles Triangle : 2 sides equal (2 angles equal)
+  Scalene Triangle : All sides different (All angles different)
+ */
+
+function checkTriangleType(a, b, c) {
+  if (a + b <= c || a + c <= b || b + c <= a) return 'Not a valid triangle';
+
+  if (a ** 2 + b ** 2 === c ** 2 || b ** 2 + c ** 2 === a ** 2 || c ** 2 + a ** 2 === b ** 2)
+    return 'Right Angled Triangle';
+
+  if (a === b && b === c) return 'Equilateral Triangle';
+
+  if (a === b || b === c || a === c) return 'Isosceles Triangle';
+
+  return 'Scalene Triangle';
+}
+
+console.log(checkTriangleType(1, 1, Math.sqrt(2)));
+
+/* Calculate Income Tax Based On Slabs: 
+  Up to Rs 2,50,000 -> No Tax
+  Rs 2,50,001 - Rs 5,00000 -> 5%
+  Rs 5,00,001- Rs 10,00,000 -> 20%
+  Above Rs 10,00,000 -> 30%
+ */
+
+function checkIncomeTax(salary) {
+  let totalTax = 0;
+  let taxCycle = 250000;
+  if (salary > 250000 && salary <= 500000) {
+    totalTax = (salary - taxCycle) / 20;
+  } else if (salary > 500000 && salary <= 1000000) {
+    let left = salary - taxCycle * 2;
+    totalTax = taxCycle / 20 + left / 5;
+  } else {
+    let left = salary - taxCycle * 4;
+    totalTax = taxCycle / 20 + (taxCycle * 2) / 5 + (left * 3) / 10;
+  }
+  return totalTax;
+}
+
+console.log(checkIncomeTax(750000));
