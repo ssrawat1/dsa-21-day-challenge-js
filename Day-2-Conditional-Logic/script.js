@@ -25,6 +25,35 @@ function checkNum(n) {
 
 console.log(checkNum(-2 / 1));
 
+/* Calculate Electricity Bill :
+   0-100 units -> Rs 5
+   101-200 units -> Rs 7
+   201-300 units -> Rs 10
+  Above 300 units -> RS 12
+ */
 
+function getElectricityBill(unit) {
+  let bill = 0;
+  let billCycle = 100;
+  if (unit >= 0 && unit <= 100) {
+    let charge = 5;
+    bill = unit * charge;
+  } else if (unit >= 101 && unit <= 200) {
+    let charge = 7;
+    let left = unit - billCycle;
+    bill = billCycle * 5 + left * charge;
+  } else if (unit >= 201 && unit <= 300) {
+    let charge = 10;
+    let left = unit - billCycle * 2;
+    bill = billCycle * 5 + billCycle * 7 + left * charge;
+  } else {
+    let charge = 12;
+    let left = unit - billCycle * 3;
+    bill = billCycle * 5 + billCycle * 7 + billCycle * 10 + left * charge;
+  }
+  return bill >= 0 ? bill : 'not valid unit';
+}
+
+console.log(getElectricityBill(230));
 
 
