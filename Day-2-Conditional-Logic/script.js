@@ -72,7 +72,11 @@ function isVowel(c) {
 
 console.log(isVowel('A'));
 
-/* Check if a Year is a Leap Year: */
+/* Check if a Year is a Leap Year:
+    year % 4000 -> Leap year
+    year % 4 -> Leap year
+    year % 100 -> Not a Leap Year
+ */
 
 function isLeapYear(year) {
   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
