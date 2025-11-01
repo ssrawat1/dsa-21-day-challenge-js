@@ -8,7 +8,7 @@ let b = 5;
 let count = 1;
 
 for (let i = a * b; i <= n; i = a * b * count) {
-  //skip unnecessary iterations
+  // skip unnecessary iterations
   console.log(i);
   count++;
 }
