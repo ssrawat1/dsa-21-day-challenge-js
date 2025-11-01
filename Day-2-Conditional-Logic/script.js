@@ -132,7 +132,7 @@ function checkIncomeTax(salary) {
     totalTax = taxCycle / 20 + left / 5;
   } else {
     let left = salary - taxCycle * 4;
-    totalTax = taxCycle / 20 + (taxCycle * 2) / 5 + (left * 3) / 10;
+    totalTax = taxCycle / 20 + (taxCycle * 2) / 5 + left * (3 / 10);
   }
   return totalTax;
 }
