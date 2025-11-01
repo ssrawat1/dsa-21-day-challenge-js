@@ -70,8 +70,11 @@ function isVowel(c) {
   }
 }
 
-console.log(checkCharacter('A'));
+console.log(isVowel('A'));
 
 /* Check if a Year is a Leap Year: */
 
-
+function isLeapYear(year) {
+  return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
+}
+console.log(isLeapYear(1900));
