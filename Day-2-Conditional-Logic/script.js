@@ -58,8 +58,10 @@ console.log(getElectricityBill(230));
 
 /* Check if a Character is Vowel or Consonant */
 
-function checkCharacter(char) {
+function checkCharacter(c) {
   if (!char || typeof char !== 'string') throw new Error('invalid argument');
+
+  const char = c.toLowerCase();
 
   if (char === 'a' || char === 'e' || char === 'i' || char === '0' || char === 'u') {
     return 'Vowel';
