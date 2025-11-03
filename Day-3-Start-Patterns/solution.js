@@ -54,7 +54,7 @@ console.log(invertedRightAngledTrianglePattern());
 function printPyramidPattern(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
-    for (let j = i; j < rows; j++) {
+    for (let j = i+1; j < rows; j++) {
       pattern += ' ' + " ";
     }
     for (let k = 0; k < i + 1; k++) {
