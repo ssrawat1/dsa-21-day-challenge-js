@@ -73,7 +73,14 @@ function printPyramidPattern(rows = 5) {
 
 console.log(printPyramidPattern());
 
-/* Inverted Pyramid: */
+/* Inverted Pyramid:
+
+       * * * * * * * * *
+         * * * * * * *
+           * * * * *
+             * * *
+               *
+ */
 
 function invertedPyramidPattern(rows = 5) {
   let pattern = '';
@@ -84,7 +91,7 @@ function invertedPyramidPattern(rows = 5) {
     for (let j = i; j < rows; j++) {
       pattern += '* ';
     }
-    for (let c = i+1; c < rows; c++) {
+    for (let c = i + 1; c < rows; c++) {
       pattern += '* ';
     }
     pattern += '\n';
@@ -92,3 +99,33 @@ function invertedPyramidPattern(rows = 5) {
   return pattern;
 }
 console.log(invertedPyramidPattern());
+
+/* Pint Hollow Square Pattern:
+
+               *****
+               *   *
+               *   *
+               *   *
+               *****
+
+*/
+
+function printHollowSquarePattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (i === 0 || i === rows - 1) {
+        pattern += '*';
+      } else {
+        if (j == 0 || j === rows - 1) {
+          pattern += '*';
+        } else {
+          pattern += ' ';
+        }
+      }
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+console.log(printHollowSquarePattern());
