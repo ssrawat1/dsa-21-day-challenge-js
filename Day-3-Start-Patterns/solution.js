@@ -1,9 +1,10 @@
 /* Print Right Angled Start Triangle:
- *
- **
- ***
- ****
- *****
+
+                   *
+                   **
+                   ***
+                   ****
+                   *****
  */
 
 function rightAngledTrianglePattern(rows = 5) {
@@ -21,10 +22,11 @@ console.log(rightAngledTrianglePattern());
 
 /* print inverted Right Angled Triangle:
 
-
-
-
-
+                   * * * * *
+                   * * * *
+                   * * *
+                   * *
+                   *
 */
 
 function invertedRightAngledTrianglePattern(rows = 5) {
