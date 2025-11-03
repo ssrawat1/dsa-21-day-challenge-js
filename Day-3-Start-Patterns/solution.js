@@ -42,3 +42,30 @@ function invertedRightAngledTrianglePattern(rows = 5) {
 }
 
 console.log(invertedRightAngledTrianglePattern());
+
+/* Print Pyramid Pattern:
+                 *
+               * * *
+             * * * * *
+           * * * * * * *
+         * * * * * * * * *
+ */
+
+function printPyramidPattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = i; j < rows; j++) {
+      pattern += ' ' + " ";
+    }
+    for (let k = 0; k < i + 1; k++) {
+      pattern += '*' + ' ';
+    }
+    for (let c = 0; c < i; c++) {
+      pattern += '*' + ' ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+console.log(printPyramidPattern());
