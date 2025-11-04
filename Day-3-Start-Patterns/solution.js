@@ -164,3 +164,31 @@ function printHollowTriangle(rows = 5) {
 }
 
 console.log(printHollowTriangle());
+
+/* Print Alternating Binary Triangle:
+
+                  1
+                  0 1
+                  1 0 1
+                  0 1 0 1
+                  1 0 1 0 1
+
+*/
+
+function getBinaryTriangle(rows = n) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < i + 1; j++) {
+      if ((j + i) % 2 == 0) {
+        pattern += 1 + ' ';
+      } else {
+        pattern += 0 + ' ';
+      }
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+let n = 5;
+console.log(getBinaryTriangle(n));
