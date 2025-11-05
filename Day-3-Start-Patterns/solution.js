@@ -1,136 +1,136 @@
-// /* Print Right Angled Start Triangle:
+/* Print Right Angled Start Triangle:
 
-//                    *
-//                    **
-//                    ***
-//                    ****
-//                    *****
-//  */
+                   *
+                   **
+                   ***
+                   ****
+                   *****
+ */
 
-// const { forwardRef } = require('react');
+const { forwardRef } = require('react');
 
-// function rightAngledTrianglePattern(rows = 5) {
-//   let pattern = '';
-//   for (let i = 0; i < rows; i++) {
-//     for (let j = 0; j < i + 1; j++) {
-//       pattern += '* ';
-//     }
-//     pattern += '\n';
-//   }
-//   return pattern;
-// }
+function rightAngledTrianglePattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < i + 1; j++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
 
-// console.log(rightAngledTrianglePattern());
+console.log(rightAngledTrianglePattern());
 
-// /* print inverted Right Angled Triangle:
+/* print inverted Right Angled Triangle:
 
-//                    * * * * *
-//                    * * * *
-//                    * * *
-//                    * *
-//                    *
-// */
+                   * * * * *
+                   * * * *
+                   * * *
+                   * *
+                   *
+*/
 
-// function invertedRightAngledTrianglePattern(rows = 5) {
-//   let pattern = '';
+function invertedRightAngledTrianglePattern(rows = 5) {
+  let pattern = '';
 
-//   for (let i = 0; i < rows; i++) {
-//     for (let j = i; j < rows; j++) {
-//       pattern += '* ';
-//     }
-//     pattern += '\n';
-//   }
-//   return pattern;
-// }
+  for (let i = 0; i < rows; i++) {
+    for (let j = i; j < rows; j++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
 
-// console.log(invertedRightAngledTrianglePattern());
+console.log(invertedRightAngledTrianglePattern());
 
-// /* Print Pyramid Pattern:
-//  *
-//  * * *
-//  * * * * *
-//  * * * * * * *
-//  * * * * * * * * *
-//  */
+/* Print Pyramid Pattern:
+ *
+ * * *
+ * * * * *
+ * * * * * * *
+ * * * * * * * * *
+ */
 
-// function printPyramidPattern(rows = 5) {
-//   let pattern = '';
-//   for (let i = 0; i < rows; i++) {
-//     for (let j = i + 1; j < rows; j++) {
-//       //print spaces
-//       pattern += '  ';
-//     }
-//     for (let k = 0; k < i + 1; k++) {
-//       // print star
-//       pattern += '* ';
-//     }
-//     for (let c = 0; c < i; c++) {
-//       // print star
-//       pattern += '* ';
-//     }
-//     pattern += '\n';
-//   }
-//   return pattern;
-// }
+function printPyramidPattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = i + 1; j < rows; j++) {
+      //print spaces
+      pattern += '  ';
+    }
+    for (let k = 0; k < i + 1; k++) {
+      // print star
+      pattern += '* ';
+    }
+    for (let c = 0; c < i; c++) {
+      // print star
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
 
-// console.log(printPyramidPattern());
+console.log(printPyramidPattern());
 
-// /* Inverted Pyramid:
+/* Inverted Pyramid:
 
-//        * * * * * * * * *
-//          * * * * * * *
-//            * * * * *
-//              * * *
-//                *
-//  */
+       * * * * * * * * *
+         * * * * * * *
+           * * * * *
+             * * *
+               *
+ */
 
-// function invertedPyramidPattern(rows = 5) {
-//   let pattern = '';
-//   for (let i = 0; i < rows; i++) {
-//     for (let k = 0; k < i; k++) {
-//       pattern += '  ';
-//     }
-//     for (let j = i; j < rows; j++) {
-//       pattern += '* ';
-//     }
-//     for (let c = i + 1; c < rows; c++) {
-//       pattern += '* ';
-//     }
-//     pattern += '\n';
-//   }
-//   return pattern;
-// }
-// console.log(invertedPyramidPattern());
+function invertedPyramidPattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let k = 0; k < i; k++) {
+      pattern += '  ';
+    }
+    for (let j = i; j < rows; j++) {
+      pattern += '* ';
+    }
+    for (let c = i + 1; c < rows; c++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+console.log(invertedPyramidPattern());
 
-// /* Pint Hollow Square Pattern:
+/* Pint Hollow Square Pattern:
 
-//                *****
-//                *   *
-//                *   *
-//                *   *
-//                *****
+               *****
+               *   *
+               *   *
+               *   *
+               *****
 
-// */
+*/
 
-// function printHollowSquarePattern(rows = 5) {
-//   let pattern = '';
-//   for (let i = 0; i < rows; i++) {
-//     for (let j = 0; j < rows; j++) {
-//       if (i === 0 || i === rows - 1) {
-//         pattern += '*';
-//       } else {
-//         if (j == 0 || j === rows - 1) {
-//           pattern += '*';
-//         } else {
-//           pattern += ' ';
-//         }
-//       }
-//     }
-//     pattern += '\n';
-//   }
-//   return pattern;
-// }
-// console.log(printHollowSquarePattern());
+function printHollowSquarePattern(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (i === 0 || i === rows - 1) {
+        pattern += '*';
+      } else {
+        if (j == 0 || j === rows - 1) {
+          pattern += '*';
+        } else {
+          pattern += ' ';
+        }
+      }
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+console.log(printHollowSquarePattern());
 
 /* Print Hollow Triangle:
 
@@ -192,3 +192,33 @@ function getBinaryTriangle(rows = n) {
 
 let n = 5;
 console.log(getBinaryTriangle(n));
+
+/* Print Hollow Inverted Pyramid:
+
+           * * * * * * * * *
+             *           *
+               *       *
+                 *   *
+                   *
+*/
+
+function getHolloInvertedPyramid(rows = 5) {
+  let pattern = '';
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < i; j++) {
+      pattern += '  ';
+    }
+    pattern += '* ';
+    for (let k = 0; k < rows - 2 * i + 2; k++) {
+      if (i === 0) pattern += '* ';
+      else pattern += '  ';
+    }
+    if (i !== rows - 1) pattern += '* ';
+    pattern += '\n';
+  }
+  return pattern;
+}
+console.log(getHolloInvertedPyramid());
+
+
+/*  */
