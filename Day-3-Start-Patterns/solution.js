@@ -113,7 +113,7 @@ console.log(invertedPyramidPattern());
 
 */
 
-function printHollowSquarePattern(rows = 5) {
+function printHollowSquarePattern(rows = 9) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < rows; j++) {
@@ -176,7 +176,7 @@ console.log(printHollowTriangle());
 
 */
 
-function getBinaryTriangle(rows = n) {
+function getBinaryTriangle(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < i + 1; j++) {
@@ -191,8 +191,7 @@ function getBinaryTriangle(rows = n) {
   return pattern;
 }
 
-let n = 5;
-console.log(getBinaryTriangle(n));
+console.log(getBinaryTriangle());
 
 /* Print Hollow Inverted Pyramid:
 
@@ -203,14 +202,14 @@ console.log(getBinaryTriangle(n));
                    *
 */
 
-function getHolloInvertedPyramid(rows = 5) {
+function getHolloInvertedPyramid(rows = 10) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < i; j++) {
       pattern += '  ';
     }
     pattern += '* ';
-    for (let k = 0; k < rows - 2 * i + 2; k++) {
+    for (let k = 0; k < 2 * (rows - i) - 3; k++) {
       if (i === 0) pattern += '* ';
       else pattern += '  ';
     }
@@ -220,6 +219,5 @@ function getHolloInvertedPyramid(rows = 5) {
   return pattern;
 }
 console.log(getHolloInvertedPyramid());
-
 
 /*  */
