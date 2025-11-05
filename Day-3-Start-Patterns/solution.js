@@ -46,11 +46,12 @@ function invertedRightAngledTrianglePattern(rows = 5) {
 console.log(invertedRightAngledTrianglePattern());
 
 /* Print Pyramid Pattern:
- *
- * * *
- * * * * *
- * * * * * * *
- * * * * * * * * *
+
+            *
+            * * *
+            * * * * *
+            * * * * * * *
+            * * * * * * * * *
  */
 
 function printPyramidPattern(rows = 5) {
