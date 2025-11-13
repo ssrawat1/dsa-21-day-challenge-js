@@ -220,9 +220,19 @@ function getHolloInvertedPyramid(rows = 10) {
 }
 console.log(getHolloInvertedPyramid());
 
-/* Butterfly Pattern: */
+/* Butterfly Pattern:
+                      *               *
+                      * *           * *
+                      * * *       * * *
+                      * * * *   * * * *
+                      * * * * * * * * *
+                      * * * *   * * * *
+                      * * *       * * *
+                      * *           * *
+                      *               *
+ */
 
-function butterflyPattern(n=10){
+function butterflyPattern(n=5){
     const upperPattern = butterflyUpperPattern(n)
     const bottomPattern = butterflyBottomPattern(n)
     return upperPattern + bottomPattern
@@ -271,3 +281,5 @@ function butterflyBottomPattern(n = 5) {
 }
 
 console.log(butterflyPattern())
+
+/* Diamond Pattern: */
