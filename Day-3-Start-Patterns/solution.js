@@ -283,21 +283,21 @@ function butterflyBottomPattern(n = 5) {
 console.log(butterflyPattern());
 
 /* Diamond Pattern:
-                           *
-                         * * *
-                       * * * * *
-                     * * * * * * *
-                   * * * * * * * * *
-                     * * * * * * *
-                       * * * * *
-                         * * *
-                           *
-*/
+ *
+ * * *
+ * * * * *
+ * * * * * * *
+ * * * * * * * * *
+ * * * * * * *
+ * * * * *
+ * * *
+ *
+ */
 
 function printDiamondPattern(n = 5) {
   const upperPattern = upperDiamondPattern(n);
   const bottomPattern = bottomDiamondPattern(n);
-  return upperPattern + bottomPattern
+  return upperPattern + bottomPattern;
 }
 
 function upperDiamondPattern(n = 5) {
@@ -338,4 +338,55 @@ function bottomDiamondPattern(n = 5) {
   return pattern;
 }
 
-console.log(printDiamondPattern(n=5))
+console.log(printDiamondPattern((n = 5)));
+
+/* Print Hourglass Pattern:
+                               * * * * * * * * *
+                                 * * * * * * *
+                                   * * * * *
+                                     * * *
+                                       *
+                                     * * *
+                                   * * * * *
+                                 * * * * * * *
+                               * * * * * * * * *
+ */
+
+function printHourglassPattern(n = 5) {
+  const upperPattern = printHourglassUpperPattern(n);
+  const bottomPattern = printHourglassBottomPattern(n);
+  return upperPattern + bottomPattern;
+}
+
+console.log(printHourglassPattern());
+
+function printHourglassUpperPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print spaces: */
+    for (let k = 0; k < i; k++) {
+      pattern += '  ';
+    }
+    /* print stars: */
+    for (let j = 0; j < 2 * (n - i) - 1; j++) {
+      pattern += '* ';
+    }
+
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+function printHourglassBottomPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 2; j++) {
+      pattern += '  ';
+    }
+    for (let k = 0; k < 2 * i + 3; k++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
