@@ -7,8 +7,6 @@
                    *****
  */
 
-const { forwardRef } = require('react');
-
 function rightAngledTrianglePattern(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
@@ -341,15 +339,15 @@ function bottomDiamondPattern(n = 5) {
 console.log(printDiamondPattern((n = 5)));
 
 /* Print Hourglass Pattern:
-                               * * * * * * * * *
-                                 * * * * * * *
-                                   * * * * *
-                                     * * *
-                                       *
-                                     * * *
-                                   * * * * *
-                                 * * * * * * *
-                               * * * * * * * * *
+ * * * * * * * * *
+ * * * * * * *
+ * * * * *
+ * * *
+ *
+ * * *
+ * * * * *
+ * * * * * * *
+ * * * * * * * * *
  */
 
 function printHourglassPattern(n = 5) {
@@ -390,3 +388,76 @@ function printHourglassBottomPattern(n = 5) {
   }
   return pattern;
 }
+
+/* Hollow Diamond Pattern:
+ *
+ *   *
+ *       *
+ *           *
+ *               *
+ *           *
+ *       *
+ *   *
+ *
+ */
+
+function printHollowDiamondPattern(n = 5) {
+  const upperPattern = hollowDiamondUpperPattern(n);
+  const bottomPattern = hollowDiamondBottomPattern(n);
+  return upperPattern + bottomPattern;
+}
+
+function hollowDiamondUpperPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print spaces */
+    for (let j = 0; j < n - i - 1; j++) {
+      pattern += '  ';
+    }
+    pattern += '* ';
+    for (let k = 0; k < 2 * i - 1; k++) {
+      pattern += '  ';
+    }
+    if (i > 0) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+function hollowDiamondBottomPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < i + 1; j++) {
+      pattern += '  ';
+    }
+    pattern += '* ';
+    for (let k = 0; k < 2 * (n - 1 - i) - 3; k++) {
+      pattern += '  ';
+    }
+    if (i < n - 2) {
+      pattern += '*';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+console.log(printHollowDiamondPattern());
+
+/* print Rhombus Pattern: */
+
+function printRhombusPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      pattern += '  ';
+    }
+    for (let k = 0; k < n - 1; k++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+console.log(printRhombusPattern());
