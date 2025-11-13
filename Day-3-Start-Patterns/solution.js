@@ -220,4 +220,54 @@ function getHolloInvertedPyramid(rows = 10) {
 }
 console.log(getHolloInvertedPyramid());
 
-/*  */
+/* Butterfly Pattern: */
+
+function butterflyPattern(n=10){
+    const upperPattern = butterflyUpperPattern(n)
+    const bottomPattern = butterflyBottomPattern(n)
+    return upperPattern + bottomPattern
+}
+
+function butterflyUpperPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print stars */
+    for (let j = 0; j < i + 1; j++) {
+      pattern += '* ';
+    }
+    /* print spaces */
+    for (let k = 0; k < 2 * (n - i) - 3; k++) {
+      pattern += '  ';
+    }
+    /* print stars */
+    for (let l = 0; l < i + 1; l++) {
+      if(i==n-1 && l===i) continue
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+
+  return pattern;
+}
+
+function butterflyBottomPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n - 1; i++) {
+    /* print stars */
+    for (let j = 0; j < n - i - 1; j++) {
+      pattern += '* ';
+    }
+    /* print spaces */
+    for (let k = 0; k <= 2 * i; k++) {
+      pattern += '  ';
+    }
+    /* print stars */
+    for (let j = 0; j < n - i - 1; j++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+console.log(butterflyPattern())
