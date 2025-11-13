@@ -219,15 +219,15 @@ function getHolloInvertedPyramid(rows = 10) {
 console.log(getHolloInvertedPyramid());
 
 /* Butterfly Pattern:
- *               *
- * *           * *
- * * *       * * *
- * * * *   * * * *
- * * * * * * * * *
- * * * *   * * * *
- * * *       * * *
- * *           * *
- *               *
+                         *               *
+                         * *           * *
+                         * * *       * * *
+                         * * * *   * * * *
+                         * * * * * * * * *
+                         * * * *   * * * *
+                         * * *       * * *
+                         * *           * *
+                         *               *
  */
 
 function butterflyPattern(n = 5) {
@@ -281,15 +281,15 @@ function butterflyBottomPattern(n = 5) {
 console.log(butterflyPattern());
 
 /* Diamond Pattern:
- *
- * * *
- * * * * *
- * * * * * * *
- * * * * * * * * *
- * * * * * * *
- * * * * *
- * * *
- *
+                          *
+                        * * *
+                      * * * * *
+                    * * * * * * *
+                  * * * * * * * * *
+                    * * * * * * *
+                      * * * * *
+                        * * *
+                          *
  */
 
 function printDiamondPattern(n = 5) {
@@ -339,15 +339,15 @@ function bottomDiamondPattern(n = 5) {
 console.log(printDiamondPattern((n = 5)));
 
 /* Print Hourglass Pattern:
- * * * * * * * * *
- * * * * * * *
- * * * * *
- * * *
- *
- * * *
- * * * * *
- * * * * * * *
- * * * * * * * * *
+                             * * * * * * * * *
+                              * * * * * * *
+                                * * * * *
+                                  * * *
+                                    *
+                                  * * *
+                                * * * * *
+                              * * * * * * *
+                            * * * * * * * * *
  */
 
 function printHourglassPattern(n = 5) {
@@ -390,15 +390,16 @@ function printHourglassBottomPattern(n = 5) {
 }
 
 /* Hollow Diamond Pattern:
- *
- *   *
- *       *
- *           *
- *               *
- *           *
- *       *
- *   *
- *
+                            
+                              *
+                            *   *
+                          *       *
+                        *           *
+                      *               *
+                        *           *
+                          *       *
+                            *   *
+                              *
  */
 
 function printHollowDiamondPattern(n = 5) {
@@ -445,7 +446,13 @@ function hollowDiamondBottomPattern(n = 5) {
 
 console.log(printHollowDiamondPattern());
 
-/* print Rhombus Pattern: */
+/* print Rhombus Pattern:
+                           * * * *
+                         * * * *
+                       * * * *
+                     * * * *
+                   * * * *
+*/
 
 function printRhombusPattern(n = 5) {
   let pattern = '';
