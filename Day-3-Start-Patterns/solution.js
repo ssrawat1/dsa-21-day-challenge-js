@@ -221,21 +221,21 @@ function getHolloInvertedPyramid(rows = 10) {
 console.log(getHolloInvertedPyramid());
 
 /* Butterfly Pattern:
-                      *               *
-                      * *           * *
-                      * * *       * * *
-                      * * * *   * * * *
-                      * * * * * * * * *
-                      * * * *   * * * *
-                      * * *       * * *
-                      * *           * *
-                      *               *
+ *               *
+ * *           * *
+ * * *       * * *
+ * * * *   * * * *
+ * * * * * * * * *
+ * * * *   * * * *
+ * * *       * * *
+ * *           * *
+ *               *
  */
 
-function butterflyPattern(n=5){
-    const upperPattern = butterflyUpperPattern(n)
-    const bottomPattern = butterflyBottomPattern(n)
-    return upperPattern + bottomPattern
+function butterflyPattern(n = 5) {
+  const upperPattern = butterflyUpperPattern(n);
+  const bottomPattern = butterflyBottomPattern(n);
+  return upperPattern + bottomPattern;
 }
 
 function butterflyUpperPattern(n = 5) {
@@ -251,7 +251,7 @@ function butterflyUpperPattern(n = 5) {
     }
     /* print stars */
     for (let l = 0; l < i + 1; l++) {
-      if(i==n-1 && l===i) continue
+      if (i == n - 1 && l === i) continue;
       pattern += '* ';
     }
     pattern += '\n';
@@ -280,6 +280,62 @@ function butterflyBottomPattern(n = 5) {
   return pattern;
 }
 
-console.log(butterflyPattern())
+console.log(butterflyPattern());
 
-/* Diamond Pattern: */
+/* Diamond Pattern:
+                           *
+                         * * *
+                       * * * * *
+                     * * * * * * *
+                   * * * * * * * * *
+                     * * * * * * *
+                       * * * * *
+                         * * *
+                           *
+*/
+
+function printDiamondPattern(n = 5) {
+  const upperPattern = upperDiamondPattern(n);
+  const bottomPattern = bottomDiamondPattern(n);
+  return upperPattern + bottomPattern
+}
+
+function upperDiamondPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n; i++) {
+    /* print spaces */
+    for (let j = 0; j < n - i - 1; j++) {
+      pattern += '  ';
+    }
+    /* print stars */
+    for (let k = 0; k < i + 1; k++) {
+      pattern += '* ';
+    }
+    /* print stars again: */
+    for (let l = 0; l < i; l++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+function bottomDiamondPattern(n = 5) {
+  let pattern = '';
+  for (let i = 0; i < n - 1; i++) {
+    /* print spaces: */
+    for (let j = 0; j < i + 1; j++) {
+      pattern += '  ';
+    }
+    /* print stars: */
+    for (let k = 0; k < n - i - 1; k++) {
+      pattern += '* ';
+    }
+    for (let l = 0; l < n - i - 2; l++) {
+      pattern += '* ';
+    }
+    pattern += '\n';
+  }
+  return pattern;
+}
+
+console.log(printDiamondPattern(n=5))
