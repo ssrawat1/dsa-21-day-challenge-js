@@ -285,7 +285,7 @@ console.log(getStrongNumber());
 /* Check if a Number is an Automorphic Number
           Input: N = 25;
           Ouput: Automorphic Number (since 25^2 = 625 ends with 25)
- Automorphic: A number whose square ends with the same digits as the original number
+ (A number whose square ends with the same digits as the original number)
  */
 
 function isAutomorphic(n = 25) {
@@ -322,3 +322,26 @@ function getFrequencyOfDigit(n = 112233) {
 }
 
 console.log(getFrequencyOfDigit());
+
+/* Check if a Number is a Harshad Number:
+        Input: N = 18 
+        Output: Harshad Number (since 18 is divisible by 1 + 8 = 9)
+(A positive integer that is perfectly divisible by the sum of its own digits)
+
+ */
+
+function isHarshadNumber(n = 21) {
+  let sum = null;
+  let num = n;
+  while (n !== 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    sum += digit;
+  }
+
+  return num % sum !== 0
+    ? { result: `${num} is not Harshad Number` }
+    : { result: `${num} is Harshad Number` };
+}
+
+console.log(isHarshadNumber());
