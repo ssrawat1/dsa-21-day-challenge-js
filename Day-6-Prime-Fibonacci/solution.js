@@ -10,4 +10,4 @@ function isPrime(n = 7) {
   return { result: `${n} is prime number` };
 }
 
-console.log(isPrime(index));
+console.log(isPrime());
