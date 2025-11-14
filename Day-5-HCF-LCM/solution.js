@@ -105,3 +105,21 @@ function getFactorsCount(n = 48) {
 }
 
 console.log(getFactorsCount());
+
+/* Sum of all factors of a number */
+
+function getSumOfFactors(n = 12) {
+  let totalSumOfFactors = 0;
+
+  for (let i = 1; i * i <= n; i++) {
+    if (n % i === 0) {
+      totalSumOfFactors += i;
+      const secondPair = n / i;
+      if (i !== secondPair) totalSumOfFactors += secondPair;
+    }
+  }
+
+  return { totalSumOfFactors };
+}
+
+console.log(getSumOfFactors());
