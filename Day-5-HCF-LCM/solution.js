@@ -87,4 +87,21 @@ function getLCM(n = 12, m = 16) {
   return { LCM: (n * m) / divisor };
 }
 
-console.log(getLCM())
+console.log(getLCM());
+
+/* Count the total number of factors of a number:
+                Input: N = 24
+                Output: 8 Factors
+*/
+
+function getFactorsCount(n = 48) {
+  let factorsCount = 0;
+  for (let i = 1; i ** 2 < n; i++) {
+    if (n % i == 0) {
+      factorsCount += 2;
+    }
+  }
+  return { factorsCount };
+}
+
+console.log(getFactorsCount());
