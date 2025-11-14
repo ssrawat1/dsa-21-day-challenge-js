@@ -260,3 +260,24 @@ function getSmallestLargestDigit(n = 9753) {
 }
 
 console.log(getSmallestLargestDigit());
+
+/* Check if a number is a strong Number:
+             Input: n = 145
+             Output: Strong Number
+ */
+
+function getStrongNumber(n = 145) {
+  let strongNum = null;
+  while (n > 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    let sum = 1;
+    for (let i = 1; i <= digit; i++) {
+      sum *= i;
+    }
+    strongNum += sum;
+  }
+  return { strongNum };
+}
+
+console.log(getStrongNumber());
