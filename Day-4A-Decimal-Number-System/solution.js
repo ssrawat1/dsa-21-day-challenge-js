@@ -281,3 +281,44 @@ function getStrongNumber(n = 145) {
 }
 
 console.log(getStrongNumber());
+
+/* Check if a Number is an Automorphic Number
+          Input: N = 25;
+          Ouput: Automorphic Number (since 25^2 = 625 ends with 25)
+ Automorphic: A number whose square ends with the same digits as the original number
+ */
+
+function isAutomorphic(n = 25) {
+  let sqr = n ** 2;
+  let pow = 1;
+  let lastDigits = null;
+  while (sqr !== 0) {
+    let digit = sqr % 10;
+    sqr = Math.floor(sqr / 10);
+    lastDigits += digit * pow;
+    if (n === lastDigits) return { result: `${n} is Automorphic Number` };
+    pow *= 10;
+  }
+
+  return { result: `${n} is not an Automorphic Number` };
+}
+
+console.log(isAutomorphic());
+
+/* find the Frequency of each digit:
+         Input: N = 112233
+         Output: 1 -> 2, 2 -> 2, 3 -> 2
+ */
+
+function getFrequencyOfDigit(n = 112233) {
+  let frequency = {};
+  while (n > 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    frequency[digit] = (frequency[digit] || 0) + 1;
+  }
+
+  return frequency;
+}
+
+console.log(getFrequencyOfDigit());
