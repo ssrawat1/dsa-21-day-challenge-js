@@ -42,13 +42,28 @@ console.log(getMultiples());
    Output HCF = 6
 */
 
+function getLargestFactor(n = 20, m = 28) {
+  if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
+  let min = n < m ? n : m;
+  let count = null;
+  for (let i = min; i >= 1; i--) {
+    console.log({ count: count++ });
+    if (n % i == 0 && m % i == 0) return { n, m, HCF_or_GCD: i };
+  }
+}
+
 function getGreatestDivisor(n = 20, m = 28) {
   if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
-  while (n > 0 && m > 0) {
-    if (n > m) n = n % m;
-    else m = m % n;
+  let divisor = n < m ? n : m;
+  let dividend = m > n ? m : n;
+
+  while (dividend % divisor !== 0) {
+    const remainder = dividend % divisor;
+    dividend = divisor;
+    divisor = remainder;
   }
-  return n === 0 ? { GCD: m } : { GCD: n };
+
+  return { GCD: divisor };
 }
 console.log(getGreatestDivisor());
 // console.log(getLargestFactor());
