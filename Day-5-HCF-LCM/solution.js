@@ -63,9 +63,9 @@ function getHCF(n = 20, m = 28) {
     divisor = remainder;
   }
 
-  return { GCD: divisor };
+  return divisor;
 }
-console.log(getHCF());
+console.log({ HCF: getHCF() });
 // console.log(getLargestFactor());
 
 /* Find the LCM 
@@ -84,10 +84,10 @@ function getLCM(n = 12, m = 16) {
     divisor = remainder;
   }
 
-  return { LCM: (n * m) / divisor };
+  return (n * m) / divisor;
 }
 
-console.log(getLCM());
+console.log({ LCM: getLCM() });
 
 /* Count the total number of factors of a number:
                 Input: N = 24
@@ -106,7 +106,10 @@ function getFactorsCount(n = 48) {
 
 console.log(getFactorsCount());
 
-/* Sum of all factors of a number */
+/* Sum of all factors of a number:
+         Input : N = 12
+         Output: sum = 28
+*/
 
 function getSumOfFactors(n = 12) {
   let totalSumOfFactors = 0;
@@ -123,3 +126,56 @@ function getSumOfFactors(n = 12) {
 }
 
 console.log(getSumOfFactors());
+
+/* Find the greatest factor of a number (Other than itself) */
+
+function getGreatestFactor(n = 100) {
+  let greatestFactor = 0;
+
+  for (let i = 1; i ** 2 < n; i++) {
+    if (n % i === 0) {
+      greatestFactor += i;
+      const secondPair = n / i;
+      if (i !== secondPair && secondPair !== n) return { greatestFactor: secondPair };
+    }
+  }
+}
+
+console.log(getGreatestFactor());
+
+/* Check if a number is a perfect number:
+                Input: N = 28
+                Output: Perfect Number
+*/
+
+function isPerfectNumber(n = 28) {
+  let divisorSum = null;
+  for (let i = 1; i ** 2 <= n; i++) {
+    if (n % i === 0) {
+      divisorSum += i;
+      let pairFactor = n / i;
+      if (i !== pairFactor && pairFactor !== n) divisorSum += pairFactor;
+    }
+  }
+  return {
+    result: divisorSum === n ? `Yes ${n} is perfect Number` : `No ${n} i s not a perfect number`,
+  };
+}
+
+console.log(isPerfectNumber());
+
+/* Find The HCF and LCM of Three Numbers:
+           Input: 8, 12, 16
+           Output: HCF = 4, LCM = 48
+ */
+
+console.log(getHCF());
+
+function getThreeNumLcmAndHcf(a = 8, b = 12, c = 16) {
+  let hcf = getHCF(getHCF(a, b), c);
+  let lcm = getLCM(getLCM(a, b), c);
+
+  return { HCF: hcf, LCM: lcm };
+}
+
+console.log(getThreeNumLcmAndHcf());
