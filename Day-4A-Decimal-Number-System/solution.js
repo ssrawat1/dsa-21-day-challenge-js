@@ -152,3 +152,111 @@ function createFractionalToDecimal(whole = [1, 2], fraction = [3, 4]) {
 }
 
 console.log(createFractionalToDecimal());
+
+/* Check if a Number is a Palindrome or not 
+                Input: N = 121
+                Output: Palindrome
+*/
+
+function isPalindrome(n = 1331) {
+  let revNum = null;
+  let initialNum = n;
+  while (n > 0) {
+    let rem = n % 10;
+    n = Math.floor(n / 10);
+    revNum = rem + revNum * 10;
+  }
+  return revNum === initialNum;
+}
+
+console.log(isPalindrome());
+
+/* Check if a number is Armstrong Number (Narcissistic Number): 
+          Input: N = 153
+          Output: Armstrong Number
+*/
+
+function isArmstrong(n = 1634) {
+  let sum = null;
+  let actualNum = n;
+  let nCopy = n;
+  let count = null;
+
+  while (nCopy > 0) {
+    nCopy = Math.floor(nCopy / 10);
+    count++;
+  }
+
+  while (n > 0) {
+    console.log({ count });
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    sum += digit ** count;
+  }
+  return actualNum === sum;
+}
+
+console.log(isArmstrong());
+
+/* Find the sum of digits:
+         Input: N = 987
+         Output: 24
+ */
+
+function getSumOfDigits(n = 987) {
+  let sum = null;
+  while (n > 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    sum += digit;
+  }
+  return { sum };
+}
+
+console.log(getSumOfDigits((n = 987)));
+
+/* Find the average of digits: 
+                 Input: 987;
+                 Output: 5.5
+*/
+
+function getAverageOfDigits(n = 4567) {
+  let sum = null;
+  let count = null;
+
+  while (n > 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    sum += digit;
+    count++;
+  }
+
+  return sum / count;
+}
+
+console.log(getAverageOfDigits());
+
+/* Find the largest and smallest digit in a number:
+                    Input: 9483
+                    Output: Largest = 9 , smallest = 3; 
+*/
+
+function getSmallestLargestDigit(n = 9753) {
+  let largest = Number.NEGATIVE_INFINITY;
+  let smallest = Number.POSITIVE_INFINITY;
+
+  while (n > 0) {
+    let digit = n % 10;
+    n = Math.floor(n / 10);
+    if (largest < digit) {
+      largest = digit;
+    }
+    if (smallest > digit) {
+      smallest = digit;
+    }
+  }
+
+  return { largest, smallest };
+}
+
+console.log(getSmallestLargestDigit());
