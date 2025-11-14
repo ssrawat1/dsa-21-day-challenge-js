@@ -29,10 +29,26 @@ function getMultiples(num = 5, limit = 50) {
   let currMultiple = num;
   let allMultiples = [];
   while (currMultiple <= limit) {
-    allMultiples.push(currMultiple)
+    allMultiples.push(currMultiple);
     currMultiple += num;
   }
-  return allMultiples
+  return allMultiples;
 }
 
 console.log(getMultiples());
+
+/* Find the HCF/GCD:
+   Input: 12, 18
+   Output HCF = 6
+*/
+
+function getGreatestDivisor(n = 20, m = 28) {
+  if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
+  while (n > 0 && m > 0) {
+    if (n > m) n = n % m;
+    else m = m % n;
+  }
+  return n === 0 ? { GCD: m } : { GCD: n };
+}
+console.log(getGreatestDivisor());
+// console.log(getLargestFactor());
