@@ -52,7 +52,7 @@ function getLargestFactor(n = 20, m = 28) {
   }
 }
 
-function getGreatestDivisor(n = 20, m = 28) {
+function getHCF(n = 20, m = 28) {
   if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
   let divisor = n < m ? n : m;
   let dividend = m > n ? m : n;
@@ -65,5 +65,26 @@ function getGreatestDivisor(n = 20, m = 28) {
 
   return { GCD: divisor };
 }
-console.log(getGreatestDivisor());
+console.log(getHCF());
 // console.log(getLargestFactor());
+
+/* Find the LCM 
+      Input: 12, 16
+      Output: LCM = 36
+*/
+
+function getLCM(n = 12, m = 16) {
+  if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
+  let divisor = n < m ? n : m;
+  let dividend = m > n ? m : n;
+
+  while (dividend % divisor !== 0) {
+    const remainder = dividend % divisor;
+    dividend = divisor;
+    divisor = remainder;
+  }
+
+  return { LCM: (n * m) / divisor };
+}
+
+console.log(getLCM())
