@@ -120,7 +120,7 @@ function separateWholeAndFractionalParts(n = 5.75) {
       To get decimal number we can divide any number by 1
       Computer can't preciously represent the floating point numbers
          0.1 + 0.2 === 0.3
-         
+
   ********************************************************************
    */
 
@@ -130,4 +130,25 @@ function separateWholeAndFractionalParts(n = 5.75) {
 }
 console.log(separateWholeAndFractionalParts());
 
-/*  */
+/* 
+  Generate a Decimal Number from Whole and Fractional Digit
+  Input: Whole = [1,2], Fraction = [3,4]
+  Output: 12.34;
+
+*/
+
+function createFractionalToDecimal(whole = [1, 2], fraction = [3, 4]) {
+  let decimalNum = 0;
+  let pow = 10;
+  for (let i = 1; i <= whole.length; i++) {
+    decimalNum = whole[i - 1] + decimalNum * 10;
+  }
+  for (let j = 1; j <= fraction.length; j++) {
+    decimalNum = Number((decimalNum + Number((fraction[j - 1] / pow).toFixed(10))).toFixed(10));
+    pow *= 10;
+  }
+
+  return { decimalNum };
+}
+
+console.log(createFractionalToDecimal());

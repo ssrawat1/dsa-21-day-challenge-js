@@ -472,7 +472,6 @@ console.log(printRhombusPattern());
 
 /* Print Multiplication Table (Single and Upto N) */
 
-
 function printNumberMultiplicationUptoN(n = 5) {
   for (let i = 1; i <= n; i++) {
     let table = '';
