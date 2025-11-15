@@ -71,15 +71,37 @@ console.log(getNthFibonacciNumber());
                   Output: Yes
  */
 
-function isBelongToFibonacci(n = 18) {
-  let fiboSeries = [0, 1];
+function isBelongToFibonacci(n = 0) {
+  n = BigInt(n);
+  let fiboSeries = [0n, 1n];
 
-  for (let i = 2; true; i++) {
-    let fiboNum = fiboSeries[i - 2] + fiboSeries[i - 1];
-    if (fiboNum === n || n === 0) return true;
+  for (let i = 2n; true; i++) {
+    let fiboNum = fiboSeries[i - 2n] + fiboSeries[i - 1n];
+    if (fiboNum === n || n === 0n) return true;
     if (fiboNum > n) return false;
     fiboSeries.push(fiboNum);
   }
 }
 
 console.log(isBelongToFibonacci());
+
+/* Print All Prime Numbers Up to N:
+              Input: N = 20
+              Output: 2, 3, 5, 7, 11, 13, 17, 19
+ */
+
+function getAllPrimeUptoN(n = 20) {
+  const isPrime = new Array(n).fill(true);
+  const primeSeries = [];
+  for (let i = 2; i < n; i++) {
+    if (isPrime[i]) {
+      primeSeries.push(i);
+      for (let j = i * 2; j < n; j += i) {
+        isPrime[j] = false;
+      }
+    }
+  }
+  console.log(primeSeries);
+}
+
+console.log(getAllPrimeUptoN());
