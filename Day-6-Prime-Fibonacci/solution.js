@@ -74,12 +74,12 @@ console.log(getNthFibonacciNumber());
 function isBelongToFibonacci(n = 18) {
   let fiboSeries = [0, 1];
 
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; true; i++) {
     let fiboNum = fiboSeries[i - 2] + fiboSeries[i - 1];
-    if (fiboNum === n) return { result: `${n} is a part of fibonacci series` };
-    fiboSeries.push(fiboSeries[i - 2] + fiboSeries[i - 1]);
+    if (fiboNum === n || n === 0) return true;
+    if (fiboNum > n) return false;
+    fiboSeries.push(fiboNum);
   }
-  return { result: `${n} is not a part of fibonacci series` };
 }
 
 console.log(isBelongToFibonacci());
