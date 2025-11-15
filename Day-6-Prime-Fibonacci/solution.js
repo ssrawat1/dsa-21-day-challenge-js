@@ -101,7 +101,28 @@ function getAllPrimeUptoN(n = 20) {
       }
     }
   }
-  console.log(primeSeries);
+  return primeSeries;
 }
 
 console.log(getAllPrimeUptoN());
+
+/* Sum of All Prime Numbers till N:
+             Input: N = 10
+             Output: Sum = 17
+ */
+
+function checkPrimeSum(n = 20) {
+  const isPrime = new Array(n).fill(true);
+  let sum = 0;
+  for (let i = 2; i < n; i++) {
+    if (isPrime[i]) {
+      sum += i;
+      for (let j = i * 2; j < n; j += i) {
+        isPrime[j] = false;
+      }
+    }
+  }
+  return { sum };
+}
+
+console.log(checkPrimeSum());
