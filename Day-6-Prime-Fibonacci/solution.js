@@ -65,3 +65,21 @@ function getNthFibonacciNumber(n = 8) {
 }
 
 console.log(getNthFibonacciNumber());
+
+/* Check if a Number Belongs to the Fibonacci Series:
+                  Input: 21
+                  Output: Yes
+ */
+
+function isBelongToFibonacci(n = 18) {
+  let fiboSeries = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+    let fiboNum = fiboSeries[i - 2] + fiboSeries[i - 1];
+    if (fiboNum === n) return { result: `${n} is a part of fibonacci series` };
+    fiboSeries.push(fiboSeries[i - 2] + fiboSeries[i - 1]);
+  }
+  return { result: `${n} is not a part of fibonacci series` };
+}
+
+console.log(isBelongToFibonacci());
