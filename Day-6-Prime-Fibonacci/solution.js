@@ -40,12 +40,28 @@ console.log(isCoPrimeNumber());
              Output: 0, 1, 2, 3, 5, 8, 13, 21, 34
  */
 
-function createFibonacciSeries(n = 10) {
-  let fiboSeries = [0, 1];
-  for (let i = 2; i < n; i++) {
-    fiboSeries.push(fiboSeries[i - 2] + fiboSeries[i - 1]);
+function createFibonacciSeries(n = 9) {
+  let fiboSeries = [0n, 1n];
+  for (let i = 2n; i < BigInt(n); i++) {
+    fiboSeries.push(fiboSeries[i - 2n] + fiboSeries[i - 1n]);
   }
   return fiboSeries;
 }
 
 console.log(createFibonacciSeries());
+
+/* Find the Nth Fibonacci Number:
+             Input: N = 8;
+             Output: 13;
+*/
+
+function getNthFibonacciNumber(n = 8) {
+  let fiboSeries = [0n, 1n];
+  for (let i = 2n; i < BigInt(n); i++) {
+    fiboSeries.push(fiboSeries[i - 2n] + fiboSeries[i - 1n]);
+  }
+  console.log({ fiboSeries });
+  return fiboSeries[n - 1];
+}
+
+console.log(getNthFibonacciNumber());
