@@ -35,4 +35,17 @@ function isCoPrimeNumber(a = 7, b = 8) {
 
 console.log(isCoPrimeNumber());
 
-/*  */
+/* Print Fibonacci Series Up to N Terms:
+             Input: N = 10;
+             Output: 0, 1, 2, 3, 5, 8, 13, 21, 34
+ */
+
+function createFibonacciSeries(n = 10) {
+  let fiboSeries = [0, 1];
+  for (let i = 2; i < n; i++) {
+    fiboSeries.push(fiboSeries[i - 2] + fiboSeries[i - 1]);
+  }
+  return fiboSeries;
+}
+
+console.log(createFibonacciSeries());
