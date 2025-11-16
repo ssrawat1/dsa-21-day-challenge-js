@@ -153,3 +153,27 @@ function isTwinPrime(a = 8, b = 10) {
 }
 
 console.log(isTwinPrime());
+
+/* Generate Fibonacci Numbers Within a Range:
+              Input: Start = 10, End = 100
+              Output: 13, 21, 34, 55, 89
+*/
+
+function generateFibonacciRange(start = 10, end = 100) {
+  const rangeSeries = [];
+  let a = 0,
+    b = 1;
+
+  while (b < end) {
+    if (b > start) {
+      rangeSeries.push(b);
+    }
+    [a, b] = [b, a + b];
+  }
+
+  return rangeSeries.length > 0
+    ? rangeSeries
+    : { result: `No Fibonacci numbers exist within range (${start}, ${end})` };
+}
+
+console.log(generateFibonacciRange());
