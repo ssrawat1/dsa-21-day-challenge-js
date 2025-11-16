@@ -1,4 +1,11 @@
-/* create a number using this [2,4,6,5] but condition is that 2 should be one unit place , 4 on 10th place and so on  */
+/***********************************************************
+              Create a Number from Array of Digits
+    Input: [2, 4, 6, 5]
+    Output: 2465
+    
+    Condition: 2 should be in units place, 4 in tens place,
+    6 in hundreds place, and so on.
+***********************************************************/
 
 function createNumber() {
   let nums = [2, 4, 6, 5];
@@ -10,9 +17,17 @@ function createNumber() {
   }
   return number;
 }
+
 console.log(createNumber());
 
-/* sum of tow digit is 10 (e.g, x+y=10) and there diff is 36 find the digits and numbers */
+/***********************************************************
+           Find Two Digits with Given Sum and Difference
+    Input: Sum = 10, Difference = 36
+    Output: d1 = 7, d2 = 3, num1 = 73, num2 = 37
+    
+    Find two digits whose sum is 10 and when formed as 
+    two-digit numbers, their difference is 36.
+***********************************************************/
 
 function findDigitAndNumber() {
   let sum = 10;
@@ -43,10 +58,14 @@ function findDigitAndNumber() {
 
 console.log(findDigitAndNumber());
 
-/* Split Number into Digits:
-        Input: N = 12345
-        Output: [1,2,3,4,5]
- */
+/***********************************************************
+                  Split Number into Digits
+    Input: N = 12345
+    Output: [1, 2, 3, 4, 5]
+    
+    Convert a number into an array of individual digits
+    in their correct order.
+***********************************************************/
 
 function numberToDigit(n = 12345) {
   let digitArr = [];
@@ -57,9 +76,17 @@ function numberToDigit(n = 12345) {
   }
   return digitArr;
 }
+
 console.log(numberToDigit());
 
-/* Reverse a Number: */
+/***********************************************************
+                      Reverse a Number
+    Input: N = 13579
+    Output: 97531
+    
+    Reverse the digits of a number while maintaining
+    its mathematical value.
+***********************************************************/
 
 function reverseNumber(n = 13579) {
   let revNum = 0;
@@ -72,10 +99,15 @@ function reverseNumber(n = 13579) {
 }
 
 console.log(reverseNumber());
-/* Remove the Decimal Point Mathematically:
-        Input: N = 12.34
-        Output: 1234
- */
+
+/***********************************************************
+            Remove the Decimal Point Mathematically
+    Input: N = 12.34
+    Output: 1234
+    
+    Convert a decimal number to a whole number by 
+    removing the decimal point.
+***********************************************************/
 
 function decimalToDigit(n = 12.34) {
   while (!Number.isInteger(n)) {
@@ -83,59 +115,62 @@ function decimalToDigit(n = 12.34) {
   }
   return n;
 }
+
 console.log(decimalToDigit());
 
-/* Separate Whole and Fractional Parts of a Number:
-              Input: N = 5.75
-              Output: Whole = 5; Fraction = 0.75;
-*/
+/***********************************************************
+        Separate Whole and Fractional Parts of a Number
+    Input: N = 5.75
+    Output: Whole = 5, Fraction = 0.75
+    
+    Extract the integer part and decimal part from 
+    a decimal number separately.
+    
+    Note: Approach 3 is used to handle floating-point 
+    precision issues. JavaScript can't precisely 
+    represent some floating-point numbers (e.g., 0.1 + 0.2 !== 0.3)
+***********************************************************/
 
 function separateWholeAndFractionalParts(n = 5.75) {
   /*
-  ********************************************
-                FIRST APPROACH
-   ********************************************* 
-   */
-  // let whole = Math.floor(n);
-  // let fractional = n - whole;
-  // return { whole, fractional };
+  *** APPROACH 1: Simple Math ***
+  let whole = Math.floor(n);
+  let fractional = n - whole;
+  return { whole, fractional };
+  */
 
   /*
-  ********************************************
-                SECOND APPROACH
-   ********************************************* 
-   */
-
-  // let fractional = 0;
-  // for (let i = 1; i <= n; i++) {
-  //   fractional = i;
-  // }
-  // let whole = n - fractional;
-  // return { fractional, whole };
+  *** APPROACH 2: Loop Based ***
+  let fractional = 0;
+  for (let i = 1; i <= n; i++) {
+    fractional = i;
+  }
+  let whole = n - fractional;
+  return { fractional, whole };
+  */
 
   /*
-  ********************************************************************
-                            THIRD APPROACH
-
-      To get decimal number we can divide any number by 1
-      Computer can't preciously represent the floating point numbers
-         0.1 + 0.2 === 0.3
-
-  ********************************************************************
-   */
+  *** APPROACH 3: Handle Floating-Point Precision ***
+  To get decimal number we can divide any number by 1.
+  Computer can't precisely represent floating point numbers.
+  Example: 0.1 + 0.2 === 0.3 (false in JavaScript!)
+  */
 
   const fractionPart = Number((n % 1).toFixed(10));
-  const wholePart = Number((n - fractionPart).toFixed(10)); // Number method automatically round the number upto correct decimal
+  const wholePart = Number((n - fractionPart).toFixed(10));
   return { fractionPart, wholePart };
 }
+
 console.log(separateWholeAndFractionalParts());
 
-/* 
-  Generate a Decimal Number from Whole and Fractional Digit
-  Input: Whole = [1,2], Fraction = [3,4]
-  Output: 12.34;
-
-*/
+/***********************************************************
+        Generate a Decimal Number from Digit Arrays
+    Input: Whole = [1, 2], Fraction = [3, 4]
+    Output: 12.34
+    
+    Combine separate arrays of whole digits and 
+    fractional digits into a single decimal number.
+***********************************************************/
 
 function createFractionalToDecimal(whole = [1, 2], fraction = [3, 4]) {
   let decimalNum = 0;
@@ -153,13 +188,17 @@ function createFractionalToDecimal(whole = [1, 2], fraction = [3, 4]) {
 
 console.log(createFractionalToDecimal());
 
-/* Check if a Number is a Palindrome or not 
-                Input: N = 121
-                Output: Palindrome
-*/
+/***********************************************************
+              Check if a Number is a Palindrome
+    Input: N = 121
+    Output: Palindrome (true)
+    
+    A palindrome number reads the same forwards and 
+    backwards (e.g., 121, 1331, 12321).
+***********************************************************/
 
 function isPalindrome(n = 1331) {
-  let revNum = null;
+  let revNum = 0;
   let initialNum = n;
   while (n > 0) {
     let rem = n % 10;
@@ -171,16 +210,23 @@ function isPalindrome(n = 1331) {
 
 console.log(isPalindrome());
 
-/* Check if a number is Armstrong Number (Narcissistic Number): 
-          Input: N = 153
-          Output: Armstrong Number
-*/
+/***********************************************************
+        Check if a Number is an Armstrong Number
+    Input: N = 153
+    Output: Armstrong Number (true)
+    
+    Also called Narcissistic Number.
+    153 = 1³ + 5³ + 3³ = 1 + 125 + 27 = 153
+    
+    An Armstrong number is equal to the sum of its digits 
+    each raised to the power of the number of digits.
+***********************************************************/
 
 function isArmstrong(n = 1634) {
-  let sum = null;
+  let sum = 0;
   let actualNum = n;
   let nCopy = n;
-  let count = null;
+  let count = 0;
 
   while (nCopy > 0) {
     nCopy = Math.floor(nCopy / 10);
@@ -188,7 +234,6 @@ function isArmstrong(n = 1634) {
   }
 
   while (n > 0) {
-    console.log({ count });
     let digit = n % 10;
     n = Math.floor(n / 10);
     sum += digit ** count;
@@ -198,13 +243,16 @@ function isArmstrong(n = 1634) {
 
 console.log(isArmstrong());
 
-/* Find the sum of digits:
-         Input: N = 987
-         Output: 24
- */
+/***********************************************************
+                    Find the Sum of Digits
+    Input: N = 987
+    Output: 24 (9 + 8 + 7)
+    
+    Calculate the sum of all individual digits in a number.
+***********************************************************/
 
 function getSumOfDigits(n = 987) {
-  let sum = null;
+  let sum = 0;
   while (n > 0) {
     let digit = n % 10;
     n = Math.floor(n / 10);
@@ -213,16 +261,19 @@ function getSumOfDigits(n = 987) {
   return { sum };
 }
 
-console.log(getSumOfDigits((n = 987)));
+console.log(getSumOfDigits());
 
-/* Find the average of digits: 
-                 Input: 987;
-                 Output: 5.5
-*/
+/***********************************************************
+                 Find the Average of Digits
+    Input: N = 4567
+    Output: 5.5 (Sum: 22, Count: 4, Average: 5.5)
+    
+    Calculate the average value of all digits in a number.
+***********************************************************/
 
 function getAverageOfDigits(n = 4567) {
-  let sum = null;
-  let count = null;
+  let sum = 0;
+  let count = 0;
 
   while (n > 0) {
     let digit = n % 10;
@@ -236,10 +287,14 @@ function getAverageOfDigits(n = 4567) {
 
 console.log(getAverageOfDigits());
 
-/* Find the largest and smallest digit in a number:
-                    Input: 9483
-                    Output: Largest = 9 , smallest = 3; 
-*/
+/***********************************************************
+        Find the Largest and Smallest Digit in a Number
+    Input: N = 9753
+    Output: Largest = 9, Smallest = 3
+    
+    Identify the maximum and minimum digits present 
+    in a number.
+***********************************************************/
 
 function getSmallestLargestDigit(n = 9753) {
   let largest = Number.NEGATIVE_INFINITY;
@@ -261,37 +316,50 @@ function getSmallestLargestDigit(n = 9753) {
 
 console.log(getSmallestLargestDigit());
 
-/* Check if a number is a strong Number:
-             Input: n = 145
-             Output: Strong Number
- */
+/***********************************************************
+              Check if a Number is a Strong Number
+    Input: N = 145
+    Output: Strong Number (true)
+    
+    145 = 1! + 4! + 5! = 1 + 24 + 120 = 145
+    
+    A strong number is equal to the sum of factorials 
+    of its digits.
+***********************************************************/
 
 function getStrongNumber(n = 145) {
-  let strongNum = null;
+  let strongNum = 0;
+  let originalNum = n;
   while (n > 0) {
     let digit = n % 10;
     n = Math.floor(n / 10);
-    let sum = 1;
+    let factorial = 1;
     for (let i = 1; i <= digit; i++) {
-      sum *= i;
+      factorial *= i;
     }
-    strongNum += sum;
+    strongNum += factorial;
   }
-  return { strongNum };
+  return originalNum === strongNum;
 }
 
 console.log(getStrongNumber());
 
-/* Check if a Number is an Automorphic Number
-          Input: N = 25;
-          Ouput: Automorphic Number (since 25^2 = 625 ends with 25)
- (A number whose square ends with the same digits as the original number)
- */
+/***********************************************************
+          Check if a Number is an Automorphic Number
+    Input: N = 25
+    Output: Automorphic Number (true)
+    
+    25² = 625 (ends with 25)
+    
+    An automorphic number is a number whose square ends 
+    with the same digits as the original number.
+    Examples: 5 (5² = 25), 6 (6² = 36), 25 (25² = 625)
+***********************************************************/
 
 function isAutomorphic(n = 25) {
   let sqr = n ** 2;
   let pow = 1;
-  let lastDigits = null;
+  let lastDigits = 0;
   while (sqr !== 0) {
     let digit = sqr % 10;
     sqr = Math.floor(sqr / 10);
@@ -305,10 +373,14 @@ function isAutomorphic(n = 25) {
 
 console.log(isAutomorphic());
 
-/* find the Frequency of each digit:
-         Input: N = 112233
-         Output: 1 -> 2, 2 -> 2, 3 -> 2
- */
+/***********************************************************
+                 Find the Frequency of Each Digit
+    Input: N = 112233
+    Output: { 1: 2, 2: 2, 3: 2 }
+    
+    Count how many times each digit appears in a number
+    and return as a frequency map.
+***********************************************************/
 
 function getFrequencyOfDigit(n = 112233) {
   let frequency = {};
@@ -323,15 +395,21 @@ function getFrequencyOfDigit(n = 112233) {
 
 console.log(getFrequencyOfDigit());
 
-/* Check if a Number is a Harshad Number:
-        Input: N = 18 
-        Output: Harshad Number (since 18 is divisible by 1 + 8 = 9)
-(A positive integer that is perfectly divisible by the sum of its own digits)
-
- */
+/***********************************************************
+              Check if a Number is a Harshad Number
+    Input: N = 18
+    Output: Harshad Number (true)
+    
+    18 is divisible by (1 + 8) = 9
+    
+    A Harshad number (also called Niven number) is a 
+    positive integer that is perfectly divisible by 
+    the sum of its own digits.
+    Examples: 12 (1+2=3, 12%3=0), 18 (1+8=9, 18%9=0)
+***********************************************************/
 
 function isHarshadNumber(n = 21) {
-  let sum = null;
+  let sum = 0;
   let num = n;
   while (n !== 0) {
     let digit = n % 10;

@@ -1,8 +1,11 @@
-/* Print All Factors of a Number:
-  100 -> 1 2 4 5 10 20 25 50 100 
-  81 -> 1 3 9 27 81
-
- */
+/***********************************************************
+                 Print All Factors of a Number
+    Input: N = 100
+    Output: [1, 2, 4, 5, 10, 20, 25, 50, 100]
+    
+    Find all numbers that divide evenly into the given number.
+    Optimization: Only loop up to √n and add factor pairs.
+***********************************************************/
 
 function getAllFactors(n = 27) {
   const factors = [];
@@ -20,10 +23,14 @@ function getAllFactors(n = 27) {
 
 console.log(getAllFactors());
 
-/* Print All Multiples of a Number up to N:
-                Input: Number = 4, Limit = 30;
-                Output: [4,8,12,16,20,24,28]
-  */
+/***********************************************************
+            Print All Multiples of a Number up to N
+    Input: Number = 4, Limit = 30
+    Output: [4, 8, 12, 16, 20, 24, 28]
+    
+    Find all multiples of a given number that do not 
+    exceed the specified limit.
+***********************************************************/
 
 function getMultiples(num = 5, limit = 50) {
   let currMultiple = num;
@@ -37,17 +44,23 @@ function getMultiples(num = 5, limit = 50) {
 
 console.log(getMultiples());
 
-/* Find the HCF/GCD:
-   Input: 12, 18
-   Output HCF = 6
-*/
+/***********************************************************
+                    Find the HCF/GCD
+    Input: 12, 18
+    Output: HCF = 6
+    
+    HCF (Highest Common Factor) or GCD (Greatest Common Divisor)
+    is the largest number that divides both numbers evenly.
+    
+    Uses Euclidean Algorithm:
+    - Repeatedly replace larger number with remainder
+    - Continue until remainder is 0
+***********************************************************/
 
 function getLargestFactor(n = 20, m = 28) {
   if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
   let min = n < m ? n : m;
-  let count = null;
   for (let i = min; i >= 1; i--) {
-    console.log({ count: count++ });
     if (n % i == 0 && m % i == 0) return { n, m, HCF_or_GCD: i };
   }
 }
@@ -65,16 +78,22 @@ function getHCF(n = 20, m = 28) {
 
   return divisor;
 }
-console.log({ HCF: getHCF() });
-// console.log(getLargestFactor());
 
-/* Find the LCM 
-      Input: 12, 16
-      Output: LCM = 36
-*/
+console.log({ HCF: getHCF() });
+
+/***********************************************************
+                      Find the LCM
+    Input: 12, 16
+    Output: LCM = 48
+    
+    LCM (Least Common Multiple) is the smallest number 
+    that is a multiple of both numbers.
+    
+    Formula: LCM(a, b) = (a × b) / GCD(a, b)
+***********************************************************/
 
 function getLCM(n = 12, m = 16) {
-  if (n === 0 || m === 0) return { n, m, HCF_or_GCD: n || m };
+  if (n === 0 || m === 0) return { n, m, LCM: n || m };
   let divisor = n < m ? n : m;
   let dividend = m > n ? m : n;
 
@@ -89,16 +108,27 @@ function getLCM(n = 12, m = 16) {
 
 console.log({ LCM: getLCM() });
 
-/* Count the total number of factors of a number:
-                Input: N = 24
-                Output: 8 Factors
-*/
+/***********************************************************
+            Count the Total Number of Factors
+    Input: N = 24
+    Output: 8 Factors
+    
+    Count how many divisors a number has.
+    
+    Optimization: Loop only up to √n
+    - If i is a factor, both i and n/i are factors
+    - Special case: If i² = n, count only once
+***********************************************************/
 
 function getFactorsCount(n = 48) {
   let factorsCount = 0;
-  for (let i = 1; i ** 2 < n; i++) {
+  for (let i = 1; i * i <= n; i++) {
     if (n % i == 0) {
-      factorsCount += 2;
+      if (i * i === n) {
+        factorsCount += 1;  // Perfect square: count once
+      } else {
+        factorsCount += 2;  // Count both i and n/i
+      }
     }
   }
   return { factorsCount };
@@ -106,10 +136,15 @@ function getFactorsCount(n = 48) {
 
 console.log(getFactorsCount());
 
-/* Sum of all factors of a number:
-         Input : N = 12
-         Output: sum = 28
-*/
+/***********************************************************
+                 Sum of All Factors of a Number
+    Input: N = 12
+    Output: Sum = 28 (1 + 2 + 3 + 4 + 6 + 12)
+    
+    Calculate the total sum of all divisors of a number.
+    
+    Optimization: Loop only up to √n and add both factors.
+***********************************************************/
 
 function getSumOfFactors(n = 12) {
   let totalSumOfFactors = 0;
@@ -127,30 +162,41 @@ function getSumOfFactors(n = 12) {
 
 console.log(getSumOfFactors());
 
-/* Find the greatest factor of a number (Other than itself) */
+/***********************************************************
+      Find the Greatest Factor of a Number (Other than Itself)
+    Input: N = 100
+    Output: 50
+    
+    Find the largest divisor of a number excluding 
+    the number itself.
+***********************************************************/
 
 function getGreatestFactor(n = 100) {
-  let greatestFactor = 0;
-
-  for (let i = 1; i ** 2 < n; i++) {
+  for (let i = Math.floor(n / 2); i >= 1; i--) {
     if (n % i === 0) {
-      greatestFactor += i;
-      const secondPair = n / i;
-      if (i !== secondPair && secondPair !== n) return { greatestFactor: secondPair };
+      return { greatestFactor: i };
     }
   }
+  return { greatestFactor: 1 };
 }
 
 console.log(getGreatestFactor());
 
-/* Check if a number is a perfect number:
-                Input: N = 28
-                Output: Perfect Number
-*/
+/***********************************************************
+              Check if a Number is a Perfect Number
+    Input: N = 28
+    Output: Perfect Number
+    
+    28 = 1 + 2 + 4 + 7 + 14 (sum of proper divisors)
+    
+    A perfect number is equal to the sum of its proper 
+    divisors (all divisors except the number itself).
+    Examples: 6 (1+2+3), 28 (1+2+4+7+14), 496, 8128
+***********************************************************/
 
 function isPerfectNumber(n = 28) {
-  let divisorSum = null;
-  for (let i = 1; i ** 2 <= n; i++) {
+  let divisorSum = 0;
+  for (let i = 1; i * i <= n; i++) {
     if (n % i === 0) {
       divisorSum += i;
       let pairFactor = n / i;
@@ -158,18 +204,25 @@ function isPerfectNumber(n = 28) {
     }
   }
   return {
-    result: divisorSum === n ? `Yes ${n} is perfect Number` : `No ${n} i s not a perfect number`,
+    result: divisorSum === n 
+      ? `Yes, ${n} is a Perfect Number` 
+      : `No, ${n} is not a Perfect Number`,
   };
 }
 
 console.log(isPerfectNumber());
 
-/* Find The HCF and LCM of Three Numbers:
-           Input: 8, 12, 16
-           Output: HCF = 4, LCM = 48
- */
-
-console.log(getHCF());
+/***********************************************************
+            Find HCF and LCM of Three Numbers
+    Input: 8, 12, 16
+    Output: HCF = 4, LCM = 48
+    
+    For three numbers:
+    - HCF(a, b, c) = HCF(HCF(a, b), c)
+    - LCM(a, b, c) = LCM(LCM(a, b), c)
+    
+    First find HCF/LCM of first two, then with the third.
+***********************************************************/
 
 function getThreeNumLcmAndHcf(a = 8, b = 12, c = 16) {
   let hcf = getHCF(getHCF(a, b), c);

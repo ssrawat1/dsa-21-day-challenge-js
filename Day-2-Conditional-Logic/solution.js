@@ -1,150 +1,278 @@
-/* Find the maximum of Three numbers:
-   Approach: it is about 3 numbers right so let compare the first two number and then keep the max one and compare it with third one to get max.
-*/
+/***********************************************************
+                 Find the Maximum of Three Numbers
+    Input: a = -1, b = -2, c = -3
+    Output: -1
+    
+    Approach: Compare first two numbers, keep the max,
+    then compare it with the third number to get overall max.
+    
+    Time: O(1)
+    Space: O(1)
+***********************************************************/
 
 function getThreeNumMax(a, b, c) {
   if (typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') {
-    throw Error('error: invalid arguments');
+    throw Error('Error: Invalid arguments - all inputs must be numbers');
   }
   return a > b ? (a > c ? a : c) : b > c ? b : c;
 }
 
 console.log(getThreeNumMax(-1, -2, -3));
 
-/* Check if a Number is +ve , -ve or zero: 
- Approach: if we divide any number by 1 then we get the +ve if it is greater than 0 and if this is not a case then we get either 0 or -ve numbers right so let's convert this approach into code
-*/
+/***********************************************************
+          Check if a Number is Positive, Negative or Zero
+    Input: n = -5
+    Output: Negative
+    
+    Approach: Divide any number by 1 to normalize it.
+    - If result > 0: Positive
+    - If result < 0: Negative
+    - If result = 0: Zero
+***********************************************************/
 
 function checkNum(n) {
   if (typeof n !== 'number') {
-    throw Error('argument is not valid');
+    throw Error('Argument is not valid - must be a number');
   }
 
-  return n / 1 > 1 ? 'Positive' : n / 1 < 0 ? 'Negative' : 'Zero';
+  return n / 1 > 0 ? 'Positive' : n / 1 < 0 ? 'Negative' : 'Zero';
 }
 
-console.log(checkNum(-2 / 1));
+console.log(checkNum(-2));
 
-/* Calculate Electricity Bill :
-   0-100 units -> Rs 5
-   101-200 units -> Rs 7
-   201-300 units -> Rs 10
-  Above 300 units -> RS 12
- */
+/***********************************************************
+                  Calculate Electricity Bill
+    Input: units = 230
+    Output: Rs 1670
+    
+    Slab Structure:
+    0-100 units     → Rs 5 per unit
+    101-200 units   → Rs 7 per unit
+    201-300 units   → Rs 10 per unit
+    Above 300 units → Rs 12 per unit
+    
+    Example: 230 units
+    = (100 × 5) + (100 × 7) + (30 × 10)
+    = 500 + 700 + 300 = Rs 1500
+***********************************************************/
 
 function getElectricityBill(unit) {
   let bill = 0;
   let billCycle = 100;
+
   if (unit >= 0 && unit <= 100) {
-    let charge = 5;
-    bill = unit * charge;
-  } else if (unit >= 101 && unit <= 200) {
-    let charge = 7;
+    bill = unit * 5;
+  } else if (unit > 100 && unit <= 200) {
     let left = unit - billCycle;
-    bill = billCycle * 5 + left * charge;
-  } else if (unit >= 201 && unit <= 300) {
-    let charge = 10;
+    bill = billCycle * 5 + left * 7;
+  } else if (unit > 200 && unit <= 300) {
     let left = unit - billCycle * 2;
-    bill = billCycle * 5 + billCycle * 7 + left * charge;
-  } else {
-    let charge = 12;
+    bill = billCycle * 5 + billCycle * 7 + left * 10;
+  } else if (unit > 300) {
     let left = unit - billCycle * 3;
-    bill = billCycle * 5 + billCycle * 7 + billCycle * 10 + left * charge;
+    bill = billCycle * 5 + billCycle * 7 + billCycle * 10 + left * 12;
+  } else {
+    return 'Invalid unit value';
   }
-  return bill >= 0 ? bill : 'not valid unit';
+
+  return bill;
 }
 
 console.log(getElectricityBill(230));
 
-/* Check if a Character is Vowel or Consonant */
+/***********************************************************
+            Check if a Character is Vowel or Consonant
+    Input: c = 'A'
+    Output: Vowel
+    
+    Vowels: a, e, i, o, u (case-insensitive)
+    All other alphabetic characters are consonants.
+***********************************************************/
 
 function isVowel(c) {
-  if (!c || typeof c !== 'string') throw new Error('invalid argument');
+  if (!c || typeof c !== 'string' || c.length !== 1) {
+    throw new Error('Invalid argument - must be a single character');
+  }
 
   const char = c.toLowerCase();
 
-  if (char === 'a' || char === 'e' || char === 'i' || char === '0' || char === 'u') {
+  if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
     return 'Vowel';
-  } else {
+  } else if (char >= 'a' && char <= 'z') {
     return 'Consonant';
+  } else {
+    return 'Not a letter';
   }
 }
 
 console.log(isVowel('A'));
 
-/* Check if a Year is a Leap Year:
-    year % 4000 -> Leap year
-    year % 4 -> Leap year
-    year % 100 -> Not a Leap Year
- */
+/***********************************************************
+                    Check if a Year is a Leap Year
+    Input: year = 2000
+    Output: Leap Year
+    
+    Leap Year Rules:
+    ✓ Divisible by 400 → Leap Year
+    ✓ Divisible by 4 AND NOT by 100 → Leap Year
+    ✗ All other cases → Not a Leap Year
+    
+    Examples:
+    2000 → Leap (divisible by 400)
+    1900 → Not Leap (divisible by 100 but not 400)
+    2004 → Leap (divisible by 4, not by 100)
+    2001 → Not Leap (not divisible by 4)
+***********************************************************/
 
 function isLeapYear(year) {
+  if (typeof year !== 'number' || year < 0) {
+    throw new Error('Invalid year');
+  }
   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
-console.log(isLeapYear(1900));
 
-/* Check a Character is Uppercase , Lowercase, Digit or Special Character */
+console.log(isLeapYear(2000));
+
+/***********************************************************
+      Check Character Type: Uppercase, Lowercase, Digit, Special
+    Input: char = 'a'
+    Output: Lowercase Letter
+    
+    Character Classification:
+    - 'a' to 'z' → Lowercase Letter
+    - 'A' to 'Z' → Uppercase Letter
+    - '0' to '9' → Digit
+    - All others → Special Character
+***********************************************************/
 
 function checkCharacterType(char) {
-  if (char >= 'a' && char <= 'z') return 'Lowercase Letter';
-  else if (char >= 'A' && char <= 'Z') return 'Uppercase Letter';
-  else if (char >= 0 && char <= 9) return 'Digit';
+  if (typeof char !== 'string' || char.length !== 1) {
+    throw new Error('Invalid input - must be a single character');
+  }
+
+  if (char >= 'a' && char <= 'z') {
+    return 'Lowercase Letter';
+  } else if (char >= 'A' && char <= 'Z') {
+    return 'Uppercase Letter';
+  } else if (char >= '0' && char <= '9') {
+    return 'Digit';
+  } else {
+    return 'Special Character';
+  }
 }
 
 console.log(checkCharacterType('a'));
 
-/* Check Triangle Type Using Sides and Angles:
-  Right angled Triangle: a^2 +b^2 = c^2
-  Equilateral Triangle : All 3 sides equal(All angles = 60°)
-  Isosceles Triangle : 2 sides equal (2 angles equal)
-  Scalene Triangle : All sides different (All angles different)
- */
+/***********************************************************
+              Check Triangle Type Using Sides
+    Input: a = 3, b = 4, c = 5
+    Output: Right Angled Triangle
+    
+    Triangle Types:
+    1. Right Angled Triangle: a² + b² = c²
+    2. Equilateral Triangle: All 3 sides equal (All angles = 60°)
+    3. Isosceles Triangle: 2 sides equal (2 angles equal)
+    4. Scalene Triangle: All sides different
+    
+    Triangle Inequality: Sum of any two sides > third side
+    
+    Examples:
+    (3, 4, 5) → Right Angled (3² + 4² = 5²)
+    (5, 5, 5) → Equilateral
+    (5, 5, 8) → Isosceles
+    (3, 4, 6) → Scalene
+***********************************************************/
 
 function checkTriangleType(a, b, c) {
-  if (a + b <= c || a + c <= b || b + c <= a) return 'Not a valid triangle';
+  if (typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') {
+    throw new Error('Invalid arguments - all must be numbers');
+  }
 
-  if (a ** 2 + b ** 2 === c ** 2 || b ** 2 + c ** 2 === a ** 2 || c ** 2 + a ** 2 === b ** 2)
+  // Check Triangle Inequality Theorem
+  if (a + b <= c || a + c <= b || b + c <= a) {
+    return 'Not a valid triangle';
+  }
+
+  // Check Right Angled Triangle (Pythagorean Theorem)
+  if (a ** 2 + b ** 2 === c ** 2 || b ** 2 + c ** 2 === a ** 2 || c ** 2 + a ** 2 === b ** 2) {
     return 'Right Angled Triangle';
+  }
 
-  if (a === b && b === c) return 'Equilateral Triangle';
+  // Check Equilateral Triangle
+  if (a === b && b === c) {
+    return 'Equilateral Triangle';
+  }
 
-  if (a === b || b === c || a === c) return 'Isosceles Triangle';
+  // Check Isosceles Triangle
+  if (a === b || b === c || a === c) {
+    return 'Isosceles Triangle';
+  }
 
+  // Scalene Triangle
   return 'Scalene Triangle';
 }
 
-console.log(checkTriangleType(1, 1, Math.sqrt(2)));
+console.log(checkTriangleType(3, 4, 5));
 
-/* Calculate Income Tax Based On Slabs: 
-   Up to Rs 2,50,000 -> No Tax
-   Rs 2,50,001 - Rs 5,00000 -> 5%
-   Rs 5,00,001- Rs 10,00,000 -> 20%
-   Above Rs 10,00,000 -> 30%
- */
+/***********************************************************
+                 Calculate Income Tax Based on Slabs
+    Input: salary = 750000
+    Output: Tax = Rs 75000
+    
+    Income Tax Slabs (India):
+    0 - 2,50,000          → No Tax (0%)
+    2,50,001 - 5,00,000   → 5%
+    5,00,001 - 10,00,000  → 20%
+    Above 10,00,000       → 30%
+    
+    Example: salary = 7,50,000
+    Tax = (2,50,000 × 0%) + (2,50,000 × 5%) + (2,50,000 × 20%)
+    = 0 + 12,500 + 50,000 = Rs 62,500
+***********************************************************/
 
 function checkIncomeTax(salary) {
-  let totalTax = 0;
-  let taxCycle = 250000;
-  if (salary > 250000 && salary <= 500000) {
-    totalTax = (salary - taxCycle) / 20;
-  } else if (salary > 500000 && salary <= 1000000) {
-    let left = salary - taxCycle * 2;
-    totalTax = taxCycle / 20 + left / 5;
-  } else {
-    let left = salary - taxCycle * 4;
-    totalTax = taxCycle / 20 + (taxCycle * 2) / 5 + left * (3 / 10);
+  if (typeof salary !== 'number' || salary < 0) {
+    throw new Error('Invalid salary - must be a positive number');
   }
-  return totalTax;
+
+  let totalTax = 0;
+
+  if (salary <= 250000) {
+    totalTax = 0;
+  } else if (salary <= 500000) {
+    totalTax = (salary - 250000) * 0.05;
+  } else if (salary <= 1000000) {
+    totalTax = 250000 * 0.05 + (salary - 500000) * 0.20;
+  } else {
+    totalTax = 250000 * 0.05 + 500000 * 0.20 + (salary - 1000000) * 0.30;
+  }
+
+  return { salary, tax: totalTax.toFixed(2), afterTax: (salary - totalTax).toFixed(2) };
 }
 
 console.log(checkIncomeTax(750000));
 
-function checknum(num) {
-    if (num > 0) return "positive";
-    else if (num < 0) return "negative";
-    else {
-        return "zero";
-    }
+/***********************************************************
+            Check if Number is Positive, Negative or Zero
+    Input: num = -5
+    Output: Negative
+    
+    Simple approach using if-else conditions.
+    Direct comparison without division.
+***********************************************************/
+
+function checkNumType(num) {
+  if (typeof num !== 'number') {
+    throw new Error('Argument must be a number');
+  }
+
+  if (num > 0) {
+    return 'Positive';
+  } else if (num < 0) {
+    return 'Negative';
+  } else {
+    return 'Zero';
+  }
 }
-let res = checknum("1");
-console.log(res);
+
+console.log(checkNumType(-5));

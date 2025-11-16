@@ -1,11 +1,16 @@
-/* Print Right Angled Start Triangle:
-
-                   *
-                   **
-                   ***
-                   ****
-                   *****
- */
+/***********************************************************
+                Print Right Angled Star Triangle
+    Input: rows = 5
+    Output:
+                *
+                * *
+                * * *
+                * * * *
+                * * * * *
+    
+    Print a right-angled triangle pattern using stars.
+    Each row contains increasing number of stars.
+***********************************************************/
 
 function rightAngledTrianglePattern(rows = 5) {
   let pattern = '';
@@ -20,14 +25,19 @@ function rightAngledTrianglePattern(rows = 5) {
 
 console.log(rightAngledTrianglePattern());
 
-/* print inverted Right Angled Triangle:
-
-                   * * * * *
-                   * * * *
-                   * * *
-                   * *
-                   *
-*/
+/***********************************************************
+            Print Inverted Right Angled Triangle
+    Input: rows = 5
+    Output:
+                * * * * *
+                * * * *
+                * * *
+                * *
+                *
+    
+    Print an inverted right-angled triangle pattern.
+    Each row contains decreasing number of stars.
+***********************************************************/
 
 function invertedRightAngledTrianglePattern(rows = 5) {
   let pattern = '';
@@ -43,28 +53,30 @@ function invertedRightAngledTrianglePattern(rows = 5) {
 
 console.log(invertedRightAngledTrianglePattern());
 
-/* Print Pyramid Pattern:
-
-            *
-            * * *
-            * * * * *
-            * * * * * * *
+/***********************************************************
+                    Print Pyramid Pattern
+    Input: rows = 5
+    Output:
+                    *
+                  * * *
+                * * * * *
+              * * * * * * *
             * * * * * * * * *
- */
+    
+    Print a symmetric pyramid using stars with proper spacing.
+    Stars increase on both sides as we go down.
+***********************************************************/
 
 function printPyramidPattern(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = i + 1; j < rows; j++) {
-      //print spaces
       pattern += '  ';
     }
     for (let k = 0; k < i + 1; k++) {
-      // print star
       pattern += '* ';
     }
     for (let c = 0; c < i; c++) {
-      // print star
       pattern += '* ';
     }
     pattern += '\n';
@@ -74,14 +86,19 @@ function printPyramidPattern(rows = 5) {
 
 console.log(printPyramidPattern());
 
-/* Inverted Pyramid:
-
-       * * * * * * * * *
-         * * * * * * *
-           * * * * *
-             * * *
-               *
- */
+/***********************************************************
+                  Print Inverted Pyramid
+    Input: rows = 5
+    Output:
+             * * * * * * * * *
+               * * * * * * *
+                 * * * * *
+                   * * *
+                     *
+    
+    Print an inverted symmetric pyramid with stars.
+    Stars decrease as we go down, moving towards center.
+***********************************************************/
 
 function invertedPyramidPattern(rows = 5) {
   let pattern = '';
@@ -99,19 +116,24 @@ function invertedPyramidPattern(rows = 5) {
   }
   return pattern;
 }
+
 console.log(invertedPyramidPattern());
 
-/* Pint Hollow Square Pattern:
+/***********************************************************
+              Print Hollow Square Pattern
+    Input: rows = 5
+    Output:
+                * * * * *
+                *       *
+                *       *
+                *       *
+                * * * * *
+    
+    Print a hollow square with stars on borders only.
+    Top, bottom, left, and right edges are filled.
+***********************************************************/
 
-               *****
-               *   *
-               *   *
-               *   *
-               *****
-
-*/
-
-function printHollowSquarePattern(rows = 9) {
+function printHollowSquarePattern(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < rows; j++) {
@@ -129,17 +151,22 @@ function printHollowSquarePattern(rows = 9) {
   }
   return pattern;
 }
+
 console.log(printHollowSquarePattern());
 
-/* Print Hollow Triangle:
-
-                 *
-              *   *
-            *       *
-          *           *
-        * * * * * * * * *
-
-*/
+/***********************************************************
+               Print Hollow Triangle
+    Input: rows = 5
+    Output:
+                     *
+                   *   *
+                 *       *
+               *           *
+             * * * * * * * * *
+    
+    Print a hollow triangle with stars on edges only.
+    Top vertex and base are filled, sides are hollow.
+***********************************************************/
 
 function printHollowTriangle(rows = 5) {
   let pattern = '';
@@ -164,15 +191,19 @@ function printHollowTriangle(rows = 5) {
 
 console.log(printHollowTriangle());
 
-/* Print Alternating Binary Triangle:
-
-                  1
-                  0 1
-                  1 0 1
-                  0 1 0 1
-                  1 0 1 0 1
-
-*/
+/***********************************************************
+            Print Alternating Binary Triangle
+    Input: rows = 5
+    Output:
+                    1
+                    0 1
+                    1 0 1
+                    0 1 0 1
+                    1 0 1 0 1
+    
+    Print a triangle with alternating 0s and 1s.
+    Pattern alternates based on position sum (i+j).
+***********************************************************/
 
 function getBinaryTriangle(rows = 5) {
   let pattern = '';
@@ -191,16 +222,21 @@ function getBinaryTriangle(rows = 5) {
 
 console.log(getBinaryTriangle());
 
-/* Print Hollow Inverted Pyramid:
+/***********************************************************
+              Print Hollow Inverted Pyramid
+    Input: rows = 5
+    Output:
+                 * * * * * * * * *
+                   *           *
+                     *       *
+                       *   *
+                         *
+    
+    Print an inverted pyramid with hollow interior.
+    Only edges are filled, inside is empty.
+***********************************************************/
 
-           * * * * * * * * *
-             *           *
-               *       *
-                 *   *
-                   *
-*/
-
-function getHolloInvertedPyramid(rows = 10) {
+function getHollowInvertedPyramid(rows = 5) {
   let pattern = '';
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < i; j++) {
@@ -216,19 +252,26 @@ function getHolloInvertedPyramid(rows = 10) {
   }
   return pattern;
 }
-console.log(getHolloInvertedPyramid());
 
-/* Butterfly Pattern:
-                         *               *
-                         * *           * *
-                         * * *       * * *
-                         * * * *   * * * *
-                         * * * * * * * * *
-                         * * * *   * * * *
-                         * * *       * * *
-                         * *           * *
-                         *               *
- */
+console.log(getHollowInvertedPyramid());
+
+/***********************************************************
+                    Print Butterfly Pattern
+    Input: n = 5
+    Output:
+                    *               *
+                    * *           * *
+                    * * *       * * *
+                    * * * *   * * * *
+                    * * * * * * * * *
+                    * * * *   * * * *
+                    * * *       * * *
+                    * *           * *
+                    *               *
+    
+    Print a butterfly shape with two symmetric wings.
+    Upper half mirrors, middle meets, lower half mirrors again.
+***********************************************************/
 
 function butterflyPattern(n = 5) {
   const upperPattern = butterflyUpperPattern(n);
@@ -239,37 +282,30 @@ function butterflyPattern(n = 5) {
 function butterflyUpperPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
-    /* print stars */
     for (let j = 0; j < i + 1; j++) {
       pattern += '* ';
     }
-    /* print spaces */
     for (let k = 0; k < 2 * (n - i) - 3; k++) {
       pattern += '  ';
     }
-    /* print stars */
     for (let l = 0; l < i + 1; l++) {
       if (i == n - 1 && l === i) continue;
       pattern += '* ';
     }
     pattern += '\n';
   }
-
   return pattern;
 }
 
 function butterflyBottomPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n - 1; i++) {
-    /* print stars */
     for (let j = 0; j < n - i - 1; j++) {
       pattern += '* ';
     }
-    /* print spaces */
     for (let k = 0; k <= 2 * i; k++) {
       pattern += '  ';
     }
-    /* print stars */
     for (let j = 0; j < n - i - 1; j++) {
       pattern += '* ';
     }
@@ -280,17 +316,23 @@ function butterflyBottomPattern(n = 5) {
 
 console.log(butterflyPattern());
 
-/* Diamond Pattern:
-                          *
-                        * * *
-                      * * * * *
-                    * * * * * * *
-                  * * * * * * * * *
-                    * * * * * * *
-                      * * * * *
-                        * * *
-                          *
- */
+/***********************************************************
+                    Print Diamond Pattern
+    Input: n = 5
+    Output:
+                        *
+                      * * *
+                    * * * * *
+                  * * * * * * *
+                * * * * * * * * *
+                  * * * * * * *
+                    * * * * *
+                      * * *
+                        *
+    
+    Print a diamond shape by combining upper and lower patterns.
+    Expands then contracts symmetrically.
+***********************************************************/
 
 function printDiamondPattern(n = 5) {
   const upperPattern = upperDiamondPattern(n);
@@ -301,15 +343,12 @@ function printDiamondPattern(n = 5) {
 function upperDiamondPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
-    /* print spaces */
     for (let j = 0; j < n - i - 1; j++) {
       pattern += '  ';
     }
-    /* print stars */
     for (let k = 0; k < i + 1; k++) {
       pattern += '* ';
     }
-    /* print stars again: */
     for (let l = 0; l < i; l++) {
       pattern += '* ';
     }
@@ -317,14 +356,13 @@ function upperDiamondPattern(n = 5) {
   }
   return pattern;
 }
+
 function bottomDiamondPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n - 1; i++) {
-    /* print spaces: */
     for (let j = 0; j < i + 1; j++) {
       pattern += '  ';
     }
-    /* print stars: */
     for (let k = 0; k < n - i - 1; k++) {
       pattern += '* ';
     }
@@ -336,19 +374,25 @@ function bottomDiamondPattern(n = 5) {
   return pattern;
 }
 
-console.log(printDiamondPattern((n = 5)));
+console.log(printDiamondPattern());
 
-/* Print Hourglass Pattern:
-                             * * * * * * * * *
-                              * * * * * * *
-                                * * * * *
-                                  * * *
-                                    *
-                                  * * *
-                                * * * * *
-                              * * * * * * *
-                            * * * * * * * * *
- */
+/***********************************************************
+                  Print Hourglass Pattern
+    Input: n = 5
+    Output:
+                   * * * * * * * * *
+                     * * * * * * *
+                       * * * * *
+                         * * *
+                           *
+                         * * *
+                       * * * * *
+                     * * * * * * *
+                   * * * * * * * * *
+    
+    Print an hourglass shape with wider top and bottom,
+    narrower middle. Perfect vertical symmetry.
+***********************************************************/
 
 function printHourglassPattern(n = 5) {
   const upperPattern = printHourglassUpperPattern(n);
@@ -356,20 +400,15 @@ function printHourglassPattern(n = 5) {
   return upperPattern + bottomPattern;
 }
 
-console.log(printHourglassPattern());
-
 function printHourglassUpperPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
-    /* print spaces: */
     for (let k = 0; k < i; k++) {
       pattern += '  ';
     }
-    /* print stars: */
     for (let j = 0; j < 2 * (n - i) - 1; j++) {
       pattern += '* ';
     }
-
     pattern += '\n';
   }
   return pattern;
@@ -389,18 +428,25 @@ function printHourglassBottomPattern(n = 5) {
   return pattern;
 }
 
-/* Hollow Diamond Pattern:
-                            
-                              *
-                            *   *
-                          *       *
-                        *           *
-                      *               *
-                        *           *
-                          *       *
-                            *   *
-                              *
- */
+console.log(printHourglassPattern());
+
+/***********************************************************
+               Print Hollow Diamond Pattern
+    Input: n = 5
+    Output:
+                        *
+                      *   *
+                    *       *
+                  *           *
+                *               *
+                  *           *
+                    *       *
+                      *   *
+                        *
+    
+    Print a diamond shape with hollow interior.
+    Only the outline is visible.
+***********************************************************/
 
 function printHollowDiamondPattern(n = 5) {
   const upperPattern = hollowDiamondUpperPattern(n);
@@ -411,7 +457,6 @@ function printHollowDiamondPattern(n = 5) {
 function hollowDiamondUpperPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n; i++) {
-    /* print spaces */
     for (let j = 0; j < n - i - 1; j++) {
       pattern += '  ';
     }
@@ -426,6 +471,7 @@ function hollowDiamondUpperPattern(n = 5) {
   }
   return pattern;
 }
+
 function hollowDiamondBottomPattern(n = 5) {
   let pattern = '';
   for (let i = 0; i < n - 1; i++) {
@@ -437,7 +483,7 @@ function hollowDiamondBottomPattern(n = 5) {
       pattern += '  ';
     }
     if (i < n - 2) {
-      pattern += '*';
+      pattern += '* ';
     }
     pattern += '\n';
   }
@@ -446,13 +492,19 @@ function hollowDiamondBottomPattern(n = 5) {
 
 console.log(printHollowDiamondPattern());
 
-/* print Rhombus Pattern:
-                           * * * *
-                         * * * *
-                       * * * *
+/***********************************************************
+                  Print Rhombus Pattern
+    Input: n = 5
+    Output:
                      * * * *
                    * * * *
-*/
+                 * * * *
+               * * * *
+             * * * *
+    
+    Print a rhombus (slanted square) shape.
+    Each row has same number of stars but shifts right.
+***********************************************************/
 
 function printRhombusPattern(n = 5) {
   let pattern = '';
@@ -460,26 +512,38 @@ function printRhombusPattern(n = 5) {
     for (let j = 0; j < n - i - 1; j++) {
       pattern += '  ';
     }
-    for (let k = 0; k < n - 1; k++) {
+    for (let k = 0; k < n; k++) {
       pattern += '* ';
     }
     pattern += '\n';
   }
   return pattern;
 }
+
 console.log(printRhombusPattern());
 
-
-/* Print Multiplication Table (Single and Upto N) */
+/***********************************************************
+          Print Multiplication Table (Single and Upto N)
+    Input: n = 5
+    Output:
+                    1*1 = 1
+                    1*2 = 2
+                    ...
+                    2*1 = 2
+                    ...
+    
+    Print multiplication tables for numbers 1 to n.
+    Each table shows multiples from 1 to 10.
+***********************************************************/
 
 function printNumberMultiplicationUptoN(n = 5) {
   for (let i = 1; i <= n; i++) {
     let table = '';
     for (let j = 1; j <= 10; j++) {
-      table += `${i}*${j} = ${i * j} \n`
+      table += `${i}*${j} = ${i * j} \n`;
     }
     console.log(table);
   }
 }
 
-console.log(printNumberMultiplicationUptoN())
+console.log(printNumberMultiplicationUptoN());
