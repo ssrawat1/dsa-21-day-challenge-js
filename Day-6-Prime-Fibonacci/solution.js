@@ -177,3 +177,21 @@ function generateFibonacciRange(start = 10, end = 100) {
 }
 
 console.log(generateFibonacciRange());
+
+/* Find the Sum of Even Fibonacci Numbers upt to N Terms 
+                       Input: N = 10;
+                       Output: Sum = 44 (2 + 8 + 34)
+*/
+
+function sumOfEvenFibonacci(n = 10) {
+  let fiboSeries = [0, 1];
+  let sum = 0;
+  for (let i = 2; i < n; i++) {
+    let fiboSum = fiboSeries[i - 2] + fiboSeries[i - 1];
+    if (fiboSum % 2 == 0) sum += fiboSum;
+    fiboSeries.push(fiboSum);
+  }
+  return sum;
+}
+
+console.log(sumOfEvenFibonacci());
