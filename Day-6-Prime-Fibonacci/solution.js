@@ -226,3 +226,15 @@ function isSumPrime(n = 10) {
 }
 
 isSumPrime();
+
+/* Print Fist N Prime Fibonacci Numbers:
+                Input: N = 5
+                Output: 2, 3, 5, 13, 89
+*/
+
+function printFirstNFibonacci(n = 5) {
+  let fiboSeries = [];
+  
+}
+
+console.log(printFirstNFibonacci());
