@@ -1,10 +1,13 @@
 /* Check if a Number is Prime:
              Input: 7
              Output: Prime Number
+Why loop run upto square root :(If a number has a divisor greater than its square root, it MUST also have a corresponding divisor smaller than its square root)
  */
 
 function isPrime(n = 7) {
-  for (let i = 2; i <= Math.floor(n / 2); i++) {
+  if (n <= 1) return { result: `${n} is not a prime number` };
+
+  for (let i = 2; i ** 2 <= n; i++) {
     if (n % i === 0) return { result: `${n} is not a prime number` };
   }
   return { result: `${n} is prime number` };
@@ -195,3 +198,31 @@ function sumOfEvenFibonacci(n = 10) {
 }
 
 console.log(sumOfEvenFibonacci());
+
+/* Check if the Sum of Two consecutive Fibonacci Numbers is Prime:
+                  Input: (5 + 8)
+                  Output: 13 is Prime
+Why loop run upto square root :(If a number has a divisor greater than its square root, it MUST also have a corresponding divisor smaller than its square root)
+*/
+
+function checkIsPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i ** 2 <= num; i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+function isSumPrime(n = 10) {
+  let fiboSeries = [0, 1];
+  for (let i = 2; i <= n + 1; i++) {
+    let currFiboNum = fiboSeries[i - 2] + fiboSeries[i - 1];
+    fiboSeries.push(currFiboNum);
+    let res = checkIsPrime(currFiboNum)
+      ? { result: `sum of (${fiboSeries[i - 2]}, ${fiboSeries[i - 1]}) is prime number` }
+      : { result: `sum of (${fiboSeries[i - 2]}, ${fiboSeries[i - 1]}) is not prime number` };
+    console.log(res);
+  }
+}
+
+isSumPrime();
