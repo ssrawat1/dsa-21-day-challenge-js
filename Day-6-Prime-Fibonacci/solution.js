@@ -126,3 +126,30 @@ function checkPrimeSum(n = 20) {
 }
 
 console.log(checkPrimeSum());
+
+/* Check if Two Numbers are Twin Primes:
+             Input: (3,5)
+             Output: Twin Primes
+(a pair of prime numbers that have a difference of exactly 2)
+ */
+
+function isTwinPrime(a = 8, b = 10) {
+  const largerNum = a > b ? a : b;
+  let primeNum = [];
+  const isPrime = new Array(largerNum + 1).fill(true);
+  for (let i = 2; i <= largerNum; i++) {
+    if (isPrime[i]) {
+      if (i === a || i === b) {
+        primeNum.push(i);
+      }
+      for (let j = i * 2; j <= largerNum; j += i) {
+        isPrime[j] = false;
+      }
+    }
+  }
+  return primeNum.length === 2 && Math.abs(primeNum[1] - primeNum[0]) == 2
+    ? { result: `(${a}, ${b}) are Twin Primes` }
+    : { result: `(${a}, ${b}) are not Twin Primes` };
+}
+
+console.log(isTwinPrime());
