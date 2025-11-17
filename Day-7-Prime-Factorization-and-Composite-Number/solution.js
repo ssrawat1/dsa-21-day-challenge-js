@@ -242,3 +242,27 @@ function isSmithNumber(n = 666) {
 
 console.log(isSmithNumber());
 
+/* 
+Check if a Number is an Ugly Number:
+      ->   Input: N = 18
+           Output: Not Ugly (Because 18 -> 2 * 3 * 3 -> allowed )
+      ->   Input: N = 14
+           Output: Not Ugly (Contains 7)
+
+Note -> (An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5)
+
+ */
+
+function isUglyNumber(n) {
+  if (n <= 0) return false;
+
+  for (let f of [2, 3, 5]) {
+    while (n % f === 0) {
+      n /= f;
+    }
+  }
+
+  return n > 1 ? 'Given number is not a Ugly Number' : 'Given number is Ugly Number';
+}
+
+console.log(isUglyNumber(element));
