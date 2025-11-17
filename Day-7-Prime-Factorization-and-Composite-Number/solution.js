@@ -157,3 +157,88 @@ function getProduct(n = 150) {
 
 console.log(getProduct());
 
+/* Check if a Number is a Square-Free Number:
+A number is square free if none of its prime factors repeat
+             Input: N = 30
+             Output: Square-free number (2*3*5 -> no repeats)
+ */
+
+function isSquareFreeNumber(n = 20) {
+  let nCopy = n;
+
+  if (n % 2 == 0) {
+    n /= 2;
+    if (n % 2 == 0) return `${nCopy} is not a square-free number`;
+  }
+
+  for (let i = 3; i * i <= n; i += 2) {
+    if (n % i == 0) {
+      n /= i;
+      if (n % i == 0) return `${nCopy} is not a square-free number`;
+    }
+  }
+
+  return `${nCopy} is square-free number`;
+}
+
+console.log(isSquareFreeNumber());
+
+/* Check if a Number is a Smith Number:
+ A composite number whose sum of digits = sum of digits of prime factors
+              Input: N = 666
+              Output: Smith Number
+ */
+
+function isCompositeNumber(num) {
+  for (let i = 2; i ** 2 <= num; i++) {
+    if (num % i == 0) return true;
+  }
+  return false;
+}
+
+function getDigitsSum(num, sum) {
+  while (num !== 0) {
+    digit = num % 10;
+    num = Math.floor(num / 10);
+    sum += digit;
+  }
+  return sum;
+}
+
+function isSmithNumber(n = 666) {
+  let nCopy = n;
+  if (isCompositeNumber(n)) {
+    let sum = 0;
+    sum = getDigitsSum(n, sum);
+
+    let factorsSum = 0;
+
+    while (nCopy % 2 == 0) {
+      factorsSum += 2;
+      nCopy = nCopy / 2;
+    }
+
+    for (let i = 3; i ** 2 <= nCopy; i += 2) {
+      while (nCopy % i == 0) {
+        if (i >= 10) {
+          let iCopy = i;
+          factorsSum = getDigitsSum(iCopy, factorsSum);
+        } else {
+          factorsSum += i;
+        }
+        nCopy = nCopy / i;
+      }
+    }
+
+    if (nCopy > 1) {
+      factorsSum = getDigitsSum(nCopy, factorsSum);
+    }
+    return sum === factorsSum
+      ? `Given number is smith number`
+      : `Given number is not a smith number`;
+  }
+  return `Given number is not a smith number`;
+}
+
+console.log(isSmithNumber());
+
