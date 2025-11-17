@@ -1,6 +1,7 @@
 /* Find the Prime Factorization
               Input: N = 84
               Output: [2,2,3,7]
+(it is guaranteed that every integer greater than 1 has a unique prime factorization)
  */
 
 function getPrimeFactorization(n = 2) {
@@ -124,3 +125,35 @@ function isPowerfulNumber(n = 180) {
 }
 
 console.log(isPowerfulNumber());
+
+/* Find The Product of All Distinct Prime Factors:
+                  Input: N = 150
+                  Output: Product = 2 * 3 * 5 = 30
+  */
+
+function getProduct(n = 150) {
+  let product = 1;
+
+  if (n % 2 == 0) {
+    product *= 2;
+    while (n % 2 == 0) {
+      n = n / 2;
+    }
+  }
+
+  for (let i = 3; i ** 2 <= n; i += 2) {
+    if (n % i == 0) {
+      product *= i;
+      while (n % i == 0) {
+        n = n / i;
+      }
+    }
+  }
+
+  if (n > 1) product *= n;
+
+  return product;
+}
+
+console.log(getProduct());
+
