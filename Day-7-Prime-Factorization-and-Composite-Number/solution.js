@@ -322,4 +322,23 @@ function isHappyNumber(num = 4) {
   return num === 1 ? `${numCopy} is Happy Number` : `${numCopy} is not a Happy Number`;
 }
 
-console.log(isHappyNumber(num));
+console.log(isHappyNumber());
+
+/* Number Base Conversion (Any Base to Any Base)
+             Input = 101101, From Base = 2, To Base = 10
+             Output: 45
+*/
+
+function getBaseConversion(num = 9, from = 2, to = 10) {
+  let pow = 1;
+  let sum = 0;
+  while (num > 0) {
+    let digit = num % (from == 2 ? 10 : 2);
+    num = Math.floor(num / (from == 2 ? 10 : 2));
+    sum += pow * digit;
+    pow *= from == 2 ? 2 : 10;
+  }
+  return sum;
+}
+
+console.log(getBaseConversion());
