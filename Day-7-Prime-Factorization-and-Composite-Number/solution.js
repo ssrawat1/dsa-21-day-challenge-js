@@ -265,4 +265,33 @@ function isUglyNumber(n) {
   return n > 1 ? 'Given number is not a Ugly Number' : 'Given number is Ugly Number';
 }
 
-console.log(isUglyNumber(element));
+console.log(isUglyNumber());
+
+/* Check if a Number is a Kaprekar Number
+Square the number -> split -> sum should give the original number
+                  Input: N = 45
+                  Output: Kaprekar Number (45^2 = 2025 -> 20 + 25 = 45)
+ */
+
+function isKaprekarNumber(n = 9) {
+  if (n === 1) return `${n} is Kaprekar number`;
+
+  let sq = n ** 2;
+  let pow = 1;
+
+  while (pow <= sq) {
+    let right = sq % pow;
+    let left = Math.floor(sq / pow);
+    console.log({ right, left });
+
+    if (right > 0 && left + right === n) {
+      return `${n} is Kaprekar number`;
+    }
+
+    pow *= 10;
+  }
+
+  return `${n} is not a Kaprekar number`;
+}
+
+console.log(isKaprekarNumber(2));
