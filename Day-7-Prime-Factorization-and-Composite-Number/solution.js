@@ -1,8 +1,11 @@
-/* Find the Prime Factorization
+/***********************************************************
+                Find the Prime Factorization
               Input: N = 84
               Output: [2,2,3,7]
-(it is guaranteed that every integer greater than 1 has a unique prime factorization)
- */
+              
+    It is guaranteed that every integer greater than 1 
+    has a unique prime factorization.
+***********************************************************/
 
 function getPrimeFactorization(n = 2) {
   let primeFactors = [];
@@ -27,16 +30,17 @@ function getPrimeFactorization(n = 2) {
 
 console.log(getPrimeFactorization());
 
-/* Factorization in Exponent From:
-           Input: N = 360
-           Output: "2^3 * 3^2 * 5^1"
- */
+
+/***********************************************************
+            Factorization in Exponent Form
+              Input: N = 360
+              Output: "2^3 * 3^2 * 5^1"
+***********************************************************/
 
 function getExponentPrimeFactorization(n = 8321900000) {
   let factorsFreq = {};
   while (n % 2 == 0) {
     factorsFreq[2] = (factorsFreq[2] || 0) + 1;
-
     n = n / 2;
   }
 
@@ -62,16 +66,18 @@ function getExponentPrimeFactorization(n = 8321900000) {
 
 console.log(getExponentPrimeFactorization());
 
-/* Distinct Prime Factor Count:
-     Input: N = 100
-     Output: Distinct Prime Factors = 2 (because 100 -> 2,5)
-*/
+
+/***********************************************************
+              Distinct Prime Factor Count
+              Input: N = 100
+              Output: Distinct Prime Factors = 2 
+              (because 100 -> 2, 5)
+***********************************************************/
 
 function getDistinctPrimeFactorCount(n = 100) {
   let factorsFreq = {};
   while (n % 2 == 0) {
     factorsFreq[2] = (factorsFreq[2] || 0) + 1;
-
     n = n / 2;
   }
 
@@ -91,20 +97,22 @@ function getDistinctPrimeFactorCount(n = 100) {
 
 console.log(getDistinctPrimeFactorCount());
 
-/* Check if a Number is a Powerful Number:
-A number is powerful if every prime factor appears with an exponent>=2
- 
-               Input: N = 36
-               Output: Powerful Number (36-> 2^2*3^2 -> all exponents>=2)
 
-*/
+/***********************************************************
+             Check if a Number is a Powerful Number
+    A number is powerful if every prime factor 
+    appears with an exponent >= 2
+    
+              Input: N = 36
+              Output: Powerful Number 
+              (36 -> 2^2 * 3^2 -> all exponents >= 2)
+***********************************************************/
 
 function isPowerfulNumber(n = 180) {
   let nCopy = n;
   let factorsFreq = {};
   while (n % 2 == 0) {
     factorsFreq[2] = (factorsFreq[2] || 0) + 1;
-
     n = n / 2;
   }
 
@@ -120,16 +128,18 @@ function isPowerfulNumber(n = 180) {
   }
 
   return Math.min(Object.values(factorsFreq)) >= 2
-    ? `${nCopy} is powerful nCopyumber`
+    ? `${nCopy} is a powerful number`
     : `${nCopy} is not a powerful number`;
 }
 
 console.log(isPowerfulNumber());
 
-/* Find The Product of All Distinct Prime Factors:
-                  Input: N = 150
-                  Output: Product = 2 * 3 * 5 = 30
-  */
+
+/***********************************************************
+         Find The Product of All Distinct Prime Factors
+              Input: N = 150
+              Output: Product = 2 * 3 * 5 = 30
+***********************************************************/
 
 function getProduct(n = 150) {
   let product = 1;
@@ -157,11 +167,15 @@ function getProduct(n = 150) {
 
 console.log(getProduct());
 
-/* Check if a Number is a Square-Free Number:
-A number is square free if none of its prime factors repeat
-             Input: N = 30
-             Output: Square-free number (2*3*5 -> no repeats)
- */
+
+/***********************************************************
+            Check if a Number is a Square-Free Number
+    A number is square-free if none of its 
+    prime factors repeat
+    
+              Input: N = 30
+              Output: Square-free number (2 * 3 * 5 -> no repeats)
+***********************************************************/
 
 function isSquareFreeNumber(n = 20) {
   let nCopy = n;
@@ -178,16 +192,20 @@ function isSquareFreeNumber(n = 20) {
     }
   }
 
-  return `${nCopy} is square-free number`;
+  return `${nCopy} is a square-free number`;
 }
 
 console.log(isSquareFreeNumber());
 
-/* Check if a Number is a Smith Number:
- A composite number whose sum of digits = sum of digits of prime factors
+
+/***********************************************************
+              Check if a Number is a Smith Number
+    A composite number whose sum of digits = 
+    sum of digits of prime factors
+    
               Input: N = 666
               Output: Smith Number
- */
+***********************************************************/
 
 function isCompositeNumber(num) {
   for (let i = 2; i ** 2 <= num; i++) {
@@ -234,24 +252,26 @@ function isSmithNumber(n = 666) {
       factorsSum = getDigitsSum(nCopy, factorsSum);
     }
     return sum === factorsSum
-      ? `Given number is smith number`
-      : `Given number is not a smith number`;
+      ? `${n} is a Smith number`
+      : `${n} is not a Smith number`;
   }
-  return `Given number is not a smith number`;
+  return `${n} is not a Smith number`;
 }
 
 console.log(isSmithNumber());
 
-/* 
-Check if a Number is an Ugly Number:
-      ->   Input: N = 18
-           Output: Not Ugly (Because 18 -> 2 * 3 * 3 -> allowed )
-      ->   Input: N = 14
-           Output: Not Ugly (Contains 7)
 
-Note -> (An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5)
-
- */
+/***********************************************************
+              Check if a Number is an Ugly Number
+    An ugly number is a positive integer whose 
+    prime factors are limited to 2, 3, and 5
+    
+              Input: N = 18
+              Output: Not Ugly (because 18 -> 2 * 3 * 3 -> allowed)
+              
+              Input: N = 14
+              Output: Not Ugly (contains 7)
+***********************************************************/
 
 function isUglyNumber(n) {
   if (n <= 0) return false;
@@ -262,19 +282,24 @@ function isUglyNumber(n) {
     }
   }
 
-  return n > 1 ? 'Given number is not a Ugly Number' : 'Given number is Ugly Number';
+  return n > 1 ? 'Given number is not an Ugly Number' : 'Given number is an Ugly Number';
 }
 
 console.log(isUglyNumber());
 
-/* Check if a Number is a Kaprekar Number
-Square the number -> split -> sum should give the original number
-                  Input: N = 45
-                  Output: Kaprekar Number (45^2 = 2025 -> 20 + 25 = 45)
- */
+
+/***********************************************************
+             Check if a Number is a Kaprekar Number
+    Square the number -> split -> sum should 
+    give the original number
+    
+              Input: N = 45
+              Output: Kaprekar Number 
+              (45^2 = 2025 -> 20 + 25 = 45)
+***********************************************************/
 
 function isKaprekarNumber(n = 9) {
-  if (n === 1) return `${n} is Kaprekar number`;
+  if (n === 1) return `${n} is a Kaprekar number`;
 
   let sq = n ** 2;
   let pow = 1;
@@ -285,7 +310,7 @@ function isKaprekarNumber(n = 9) {
     console.log({ right, left });
 
     if (right > 0 && left + right === n) {
-      return `${n} is Kaprekar number`;
+      return `${n} is a Kaprekar number`;
     }
 
     pow *= 10;
@@ -296,11 +321,15 @@ function isKaprekarNumber(n = 9) {
 
 console.log(isKaprekarNumber(2));
 
-/* Check if a number is a Happy Number:
-Repeatedly replace the number with the sum of squares of its digits. if a becomes 1. it is happy.
-           Input: N = 19
-           Output: Happy Number
-*/
+
+/***********************************************************
+              Check if a Number is a Happy Number
+    Repeatedly replace the number with the sum of 
+    squares of its digits. If it becomes 1, it is happy.
+    
+              Input: N = 19
+              Output: Happy Number
+***********************************************************/
 
 function isHappyNumber(num = 4) {
   let numCopy = num;
@@ -319,15 +348,17 @@ function isHappyNumber(num = 4) {
     num = sum;
   }
 
-  return num === 1 ? `${numCopy} is Happy Number` : `${numCopy} is not a Happy Number`;
+  return num === 1 ? `${numCopy} is a Happy Number` : `${numCopy} is not a Happy Number`;
 }
 
 console.log(isHappyNumber());
 
-/* Number Base Conversion (Any Base to Any Base)
-             Input = 101101, From Base = 2, To Base = 10
-             Output: 45
-*/
+
+/***********************************************************
+            Number Base Conversion (Any Base to Any Base)
+              Input: 101101, From Base = 2, To Base = 10
+              Output: 45
+***********************************************************/
 
 function getBaseConversion(num = 9, from = 2, to = 10) {
   let pow = 1;
