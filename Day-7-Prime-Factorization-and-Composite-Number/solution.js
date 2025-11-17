@@ -295,3 +295,31 @@ function isKaprekarNumber(n = 9) {
 }
 
 console.log(isKaprekarNumber(2));
+
+/* Check if a number is a Happy Number:
+Repeatedly replace the number with the sum of squares of its digits. if a becomes 1. it is happy.
+           Input: N = 19
+           Output: Happy Number
+*/
+
+function isHappyNumber(num = 4) {
+  let numCopy = num;
+  let seen = new Set();
+
+  while (num !== 1 && !seen.has(num)) {
+    seen.add(num);
+    let sum = 0;
+
+    while (num > 0) {
+      let digit = num % 10;
+      sum += digit * digit;
+      num = Math.floor(num / 10);
+    }
+
+    num = sum;
+  }
+
+  return num === 1 ? `${numCopy} is Happy Number` : `${numCopy} is not a Happy Number`;
+}
+
+console.log(isHappyNumber(num));
