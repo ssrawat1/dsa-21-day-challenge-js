@@ -210,3 +210,47 @@ function isOnlyAlphabets(str = 'HelloWorld123') {
 }
 
 console.log(isOnlyAlphabets());
+
+/****************************************************************
+        Reverse Only the Words in a Sentence
+              Input: "I love coding"
+              Output: "coding love I"
+*****************************************************************/
+
+function reverseOnlyWords(s = 'I love coding') {
+  if (!s || !s.length) return '';
+
+  let words = [];
+  let word = '';
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== ' ') {
+      word += s[i];
+    } else {
+      if (word.length > 0) {
+        words.push(word);
+        word = '';
+      }
+    }
+  }
+
+  if (word.length > 0) {
+    words.push(word);
+  }
+
+  let result = '';
+
+  console.log({ words });
+
+  for (let i = 0; i < words.length; i++) {
+    result = words[i] + result;
+    if (i < words.length - 1) {
+      result = ' ' + result;
+    }
+  }
+
+  console.log({ result });
+  return result;
+}
+
+console.log(reverseOnlyWords());
