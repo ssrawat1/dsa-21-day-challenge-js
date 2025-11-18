@@ -18,8 +18,8 @@ function reverseString(str = 'javascript') {
   }
 
   // Two-pointer swap
-  let left = 0,
-    right = chars.length - 1;
+  let left = 0;
+  let right = chars.length - 1;
 
   while (left < right) {
     [chars[left], chars[right]] = [chars[right], chars[left]];
@@ -144,12 +144,12 @@ function isAnagram(s1 = 'listen', s2 = 'silent') {
 
 console.log(isAnagram());
 
-/***********************************************************
+/***********************************************************************************
         Find the First Non-Repeating Character
 ( A non-repeating character is one that appears only once in the entire string)
                        Input: "aabbcddeff"
                        Output: c
-************************************************************/
+************************************************************************************/
 
 function findFirstNonRepeatingChar(str = 'aabbcddeff') {
   if (!str || !str.length) throw new Error('string is not valid');
@@ -168,3 +168,27 @@ function findFirstNonRepeatingChar(str = 'aabbcddeff') {
 }
 
 console.log(findFirstNonRepeatingChar());
+
+/***********************************************************
+              Remove All Duplicate Characters (Keep first occurrence)
+                    Input: "programming"
+                    Output: "progamin"
+************************************************************/
+
+function removeDuplicate(str = 'programming') {
+  if (!str || !str.length) throw new Error('string is not valid');
+
+  let freq = {};
+
+  for (const char of str) {
+    freq[char] = (freq[char] || 0) + 1;
+  }
+
+  let newStr = '';
+  for (const char in freq) {
+    newStr += char;
+  }
+  return newStr;
+}
+
+console.log(removeDuplicate());
