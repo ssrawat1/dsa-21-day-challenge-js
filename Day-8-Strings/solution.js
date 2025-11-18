@@ -169,11 +169,11 @@ function findFirstNonRepeatingChar(str = 'aabbcddeff') {
 
 console.log(findFirstNonRepeatingChar());
 
-/***********************************************************
-              Remove All Duplicate Characters (Keep first occurrence)
+/**************************************************************
+      Remove All Duplicate Characters (Keep first occurrence)
                     Input: "programming"
                     Output: "progamin"
-************************************************************/
+***************************************************************/
 
 function removeDuplicate(str = 'programming') {
   if (!str || !str.length) throw new Error('string is not valid');
@@ -192,3 +192,21 @@ function removeDuplicate(str = 'programming') {
 }
 
 console.log(removeDuplicate());
+
+/****************************************************************
+        Check if a String Contains Only Alphabets
+              Input: "HelloWorld123"
+              Output: False
+*****************************************************************/
+
+function isOnlyAlphabets(str = 'HelloWorld123') {
+  if (!str || !str.length) throw new Error('string is not valid');
+  for (let char of str) {
+    if (!((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z'))) {
+      return { isAlphabetic: false };
+    }
+  }
+  return { isAlphabetic: true };
+}
+
+console.log(isOnlyAlphabets());
