@@ -55,3 +55,22 @@ function isPalindromeString(str = 'moon') {
 }
 
 console.log(isPalindromeString());
+
+/* 
+          Count Frequency Of Each Character
+                Input: "banana"
+                Output: {b : 1, a : 3, n : 2}
+
+*/
+
+function getFrequencyCount(str = 'banana') {
+  if (!str.length) return 'invalid str';
+
+  let freqObj = {};
+  for (const char of str) {
+    freqObj[char] = (freqObj[char] || 0) + 1;
+  }
+  return freqObj;
+}
+
+console.log(getFrequencyCount());
