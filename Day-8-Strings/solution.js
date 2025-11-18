@@ -125,7 +125,7 @@ console.log(maxFrequencyChar());
 ***********************************************************/
 
 function isAnagram(s1 = 'listen', s2 = 'silent') {
-  if (s1.length !== s2.length) return 'Not Anagram';
+  if (s1.length !== s2.length) return 'Given strings are not an Anagram';
 
   let charFrequency = {};
   for (let i = 0; i < s1.length; i++) {
@@ -143,3 +143,28 @@ function isAnagram(s1 = 'listen', s2 = 'silent') {
 }
 
 console.log(isAnagram());
+
+/***********************************************************
+        Find the First Non-Repeating Character
+( A non-repeating character is one that appears only once in the entire string)
+                       Input: "aabbcddeff"
+                       Output: c
+************************************************************/
+
+function findFirstNonRepeatingChar(str = 'aabbcddeff') {
+  if (!str || !str.length) throw new Error('string is not valid');
+
+  let freq = {};
+
+  for (const char of str) {
+    freq[char] = (freq[char] || 0) + 1;
+  }
+
+  for (const char of str) {
+    if (freq[char] === 1) return { char };
+  }
+
+  return "doesn't exist";
+}
+
+console.log(findFirstNonRepeatingChar());
