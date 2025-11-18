@@ -62,12 +62,12 @@ function isPalindromeString(str = 'moon') {
 
 console.log(isPalindromeString());
 
-/* 
+/***************************************************************** 
           Count Frequency Of Each Character
                 Input: "banana"
                 Output: {b : 1, a : 3, n : 2}
 
-*/
+******************************************************************/
 
 function getFrequencyCount(str = 'banana') {
   let n = str.length;
@@ -254,3 +254,35 @@ function reverseOnlyWords(s = 'I love coding') {
 }
 
 console.log(reverseOnlyWords());
+
+/****************************************************************
+        Find the Longest Word in a Sentence
+            Input: "coding is beautiful"
+            Output: "beautiful"
+*****************************************************************/
+
+function findLongestWord(s = ' coding  is  beautiful ') {
+  if (!s || !s.length) return { longestWord: '' };
+
+  let longestWord = '';
+  let word = '';
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== ' ') {
+      word += s[i];
+    } else {
+      if (word.length && word.length > longestWord.length) {
+        longestWord = word;
+      }
+      word = '';
+    }
+  }
+
+  if (word.length > longestWord.length) {
+    longestWord = word;
+  }
+
+  return { longestWord };
+}
+
+console.log(findLongestWord());
