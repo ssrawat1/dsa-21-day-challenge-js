@@ -312,3 +312,28 @@ function getWordCount(s = '  hi  there  world  ') {
 }
 
 console.log(getWordCount());
+
+/****************************************************************
+        Find All Substrings of a string (No Built-ins)
+            Input: "abc"
+            Output: a, ab, abc, b, bc, c
+*****************************************************************/
+
+function findAllSubstring(s = 'abc') {
+  let subStrings = '';
+  for (let i = 0; i < s.length; i++) {
+    subStrings += s[i];
+    if (i < s.length - 1) {
+      subStrings += ', ';
+    }
+    let newStr = s[i];
+    for (let j = i + 1; j < s.length; j++) {
+      newStr += s[j];
+      subStrings += newStr + ', ';
+    }
+  }
+
+  return {subStrings};
+}
+
+console.log(findAllSubstring());
