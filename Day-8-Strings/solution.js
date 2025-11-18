@@ -93,7 +93,7 @@ console.log(getFrequencyCount());
                 
 ***********************************************************/
 
-function getMostFrequentCharacter(str = 'success') {
+function maxFrequencyChar(str = 'success') {
   if (!str || !str.length) {
     throw new Error('Invalid String');
   }
@@ -115,4 +115,31 @@ function getMostFrequentCharacter(str = 'success') {
   return { character: maxChar, frequency: maxFreq };
 }
 
-console.log(getMostFrequentCharacter());
+console.log(maxFrequencyChar());
+
+/***********************************************************
+       Check If Two Strings Are Anagrams (Without Sorting)
+                Input: "listen" , "silent"
+                Output: Anagram
+                
+***********************************************************/
+
+function isAnagram(s1 = 'listen', s2 = 'silent') {
+  if (s1.length !== s2.length) return 'Not Anagram';
+
+  let charFrequency = {};
+  for (let i = 0; i < s1.length; i++) {
+    charFrequency[s1[i]] = (charFrequency[s1[i]] || 0) + 1;
+    charFrequency[s2[i]] = (charFrequency[s2[i]] || 0) - 1;
+  }
+
+  let keysArray = Object.keys(charFrequency);
+
+  for (let i = 0; i < keysArray.length; i++) {
+    if (charFrequency[keysArray[i]] != 0) return 'Given strings are not an anagrams';
+  }
+
+  return 'Given strings are an Anagrams';
+}
+
+console.log(isAnagram());
