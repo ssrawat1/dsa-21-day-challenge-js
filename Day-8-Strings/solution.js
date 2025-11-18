@@ -240,8 +240,6 @@ function reverseOnlyWords(s = 'I love coding') {
 
   let result = '';
 
-  console.log({ words });
-
   for (let i = 0; i < words.length; i++) {
     result = words[i] + result;
     if (i < words.length - 1) {
@@ -261,7 +259,7 @@ console.log(reverseOnlyWords());
             Output: "beautiful"
 *****************************************************************/
 
-function findLongestWord(s = ' coding  is  beautiful ') {
+function findLongestWord(s = 'coding is beautiful') {
   if (!s || !s.length) return { longestWord: '' };
 
   let longestWord = '';
@@ -286,3 +284,31 @@ function findLongestWord(s = ' coding  is  beautiful ') {
 }
 
 console.log(findLongestWord());
+
+/****************************************************************
+        Count The Number of Words (Manually without split)
+            Input: "hi there world"
+            Output: 3 words
+*****************************************************************/
+
+function getWordCount(s = '  hi  there  world  ') {
+  if (!s || !s.length) throw new Error('invalid string');
+  let word = '';
+  let wordCount = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== ' ') {
+      word += s[i];
+    } else {
+      if (word.length > 0) {
+        wordCount++;
+      }
+      word = '';
+    }
+  }
+  if (word.length) {
+    wordCount++;
+  }
+  return { wordCount };
+}
+
+console.log(getWordCount());
