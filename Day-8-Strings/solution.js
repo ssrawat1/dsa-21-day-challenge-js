@@ -6,6 +6,9 @@
 ************************************************************************************/
 
 function reverseString(str = 'javascript') {
+  if (!str || !str.length) {
+    throw new Error('Invalid String');
+  }
   const lowerStr = str.toLowerCase();
   const chars = [];
 
@@ -43,6 +46,9 @@ console.log(reverseString());
 ************************************************************************************/
 
 function isPalindromeString(str = 'moon') {
+  if (!str || !str.length) {
+    throw new Error('Invalid String');
+  }
   let start = 0;
   let end = str.length - 1;
   str = str.toLowerCase();
@@ -64,13 +70,49 @@ console.log(isPalindromeString());
 */
 
 function getFrequencyCount(str = 'banana') {
-  if (!str.length) return 'invalid str';
+  let n = str.length;
+  if (!str || !n) {
+    throw new Error('Invalid String');
+  }
 
   let freqObj = {};
-  for (const char of str) {
-    freqObj[char] = (freqObj[char] || 0) + 1;
+  for (let i = 0; i < n; i++) {
+    freqObj[str[i]] = (freqObj[str[i]] || 0) + 1;
   }
+
   return freqObj;
 }
 
 console.log(getFrequencyCount());
+
+/***********************************************************
+       Find the Most Frequent Character
+    Single pass - find max while building frequency
+                Input: "success"
+                Output: { character: 's', frequency: 3 }
+                
+***********************************************************/
+
+function getMostFrequentCharacter(str = 'success') {
+  if (!str || !str.length) {
+    throw new Error('Invalid String');
+  }
+
+  let freqObj = {};
+  let maxFreq = 0;
+  let maxChar = '';
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    freqObj[char] = (freqObj[char] || 0) + 1;
+
+    if (freqObj[char] > maxFreq) {
+      maxFreq = freqObj[char];
+      maxChar = char;
+    }
+  }
+
+  return { character: maxChar, frequency: maxFreq };
+}
+
+console.log(getMostFrequentCharacter());
