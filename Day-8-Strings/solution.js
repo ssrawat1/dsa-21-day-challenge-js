@@ -333,7 +333,34 @@ function findAllSubstring(s = 'abc') {
     }
   }
 
-  return {subStrings};
+  return { subStrings };
 }
 
 console.log(findAllSubstring());
+
+/****************************************************************
+        Compress a String (Basic Run-Length Encoding)
+            Input: "aaabbccccd"
+            Output: "a3b2c4d1"
+*****************************************************************/
+
+function compressString(s = 'aaabbccccd') {
+  if (!s || !s.length) return '';
+
+  let result = '';
+  let count = 1;
+
+  for (let i = 0; i < s.length; i++) {
+    // If next char is different or end of string
+    if (i + 1 >= s.length || s[i] !== s[i + 1]) {
+      result += s[i] + count;
+      count = 1;
+    } else {
+      count++;
+    }
+  }
+
+  return result;
+}
+
+console.log(compressString());
