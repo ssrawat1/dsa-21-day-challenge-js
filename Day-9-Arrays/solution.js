@@ -123,3 +123,42 @@ function isPangram(str = 'The quick brown fox jumps over the lazy dog') {
 }
 
 console.log(isPangram());
+
+/****************************************************************
+            Remove All Duplicate Words From a Sentence
+            Input: "this is is a test test string"
+            Output: "this is a test string" 
+*****************************************************************/
+
+function removeDuplicates(str = 'this is is a test test string') {
+  const set = new Set();
+  let word = '';
+  let newStr = '';
+  str += ' '; // add space to trigger last word
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      word += str[i];
+    } else {
+      if (word.length > 0) {
+        if (!set.has(word)) {
+          set.add(word);
+          newStr += word;
+          newStr += ' ';
+        }
+        word = '';
+      }
+    }
+  }
+
+  // To remove trailing space manually
+
+  let result = '';
+  for (let i = 0; i < newStr.length; i++) {
+    if (i === newStr.length - 1 && newStr[i] === ' ') continue;
+    result += newStr[i];
+  }
+  return { result };
+}
+
+console.log(removeDuplicates());
