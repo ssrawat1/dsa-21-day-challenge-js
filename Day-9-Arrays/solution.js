@@ -72,3 +72,31 @@ function isRotationString(s1 = 'abcde', s2 = 'cdeab') {
 }
 
 console.log(isRotationString());
+
+/****************************************************************
+        Count Frequency of Each Word in a Sequence
+            Input: "i love coding and i love javascript"
+            Output: {i:2, love:2, coding:1, and:1, Javascript:1} 
+*****************************************************************/
+
+function getWordFrequency(str = 'i  love coding and i love javascript') {
+  let wordFeq = {};
+  let currWord = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      currWord += str[i];
+    } else {
+      if (currWord.length > 0) {
+        wordFeq[currWord] = (wordFeq[currWord] || 0) + 1;
+        currWord = '';
+      }
+    }
+  }
+  if (currWord.length > 0) {
+    wordFeq[currWord] = (wordFeq[currWord] || 0) + 1;
+    currWord = '';
+  }
+  return wordFeq;
+}
+
+console.log(getWordFrequency());
