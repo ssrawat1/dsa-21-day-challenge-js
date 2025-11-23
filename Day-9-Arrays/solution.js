@@ -100,3 +100,26 @@ function getWordFrequency(str = 'i  love coding and i love javascript') {
 }
 
 console.log(getWordFrequency());
+
+/****************************************************************
+            Check if a string is a pangram
+            Input: "The quick brown fox jumps over the lazy dog"
+            Output: Pangram 
+*****************************************************************/
+
+function isPangram(str = 'The quick brown fox jumps over the lazy dog') {
+  let set = new Set();
+
+  str = str.toLowerCase();
+
+  for (let char of str) {
+    if (char >= 'a' && char <= 'z') {
+      set.add(char);
+      if (set.size === 26) return 'Pangram';
+    }
+  }
+
+  return 'Not Pangram';
+}
+
+console.log(isPangram());
