@@ -209,3 +209,9 @@ function getLongestPalindrome(str = 'babad') {
 }
 
 console.log(getLongestPalindrome());
+
+/****************************************************************
+    Find the Longest Palindromic Substrings (Brute Force Allowed)
+            Input: "babad"
+            Output: "bab" or "aba" 
+*****************************************************************/
