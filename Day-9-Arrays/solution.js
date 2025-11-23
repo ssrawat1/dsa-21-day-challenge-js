@@ -102,7 +102,7 @@ function getWordFrequency(str = 'i  love coding and i love javascript') {
 console.log(getWordFrequency());
 
 /****************************************************************
-            Check if a string is a pangram
+        Check if a string is a pangram
             Input: "The quick brown fox jumps over the lazy dog"
             Output: Pangram 
 *****************************************************************/
@@ -125,7 +125,7 @@ function isPangram(str = 'The quick brown fox jumps over the lazy dog') {
 console.log(isPangram());
 
 /****************************************************************
-            Remove All Duplicate Words From a Sentence
+        Remove All Duplicate Words From a Sentence
             Input: "this is is a test test string"
             Output: "this is a test string" 
 *****************************************************************/
@@ -162,3 +162,50 @@ function removeDuplicates(str = 'this is is a test test string') {
 }
 
 console.log(removeDuplicates());
+
+/****************************************************************
+    Find the Longest Palindromic Substrings (Brute Force Allowed)
+            Input: "babad"
+            Output: "bab" or "aba" 
+*****************************************************************/
+
+function getLongestPalindrome(str = 'babad') {
+  let subStrArr = [];
+  for (let i = 0; i < str.length; i++) {
+    let subStr = '';
+    for (let j = i; j < str.length; j++) {
+      subStr += str[j];
+      subStrArr.push(subStr);
+    }
+  }
+
+  let longestPalindromicStrings = [];
+  let longest = '';
+  for (word of subStrArr) {
+    let start = 0;
+    let end = word.length - 1;
+    let isPalindromicStr = true;
+
+    while (start < end) {
+      if (word[start] !== word[end]) {
+        isPalindromicStr = false;
+        break;
+      } else {
+        start++;
+        end--;
+      }
+    }
+    if (isPalindromicStr) {
+      if (word.length > longest.length) {
+        longest = word;
+        longestPalindromicStrings.length = 0;
+        longestPalindromicStrings.push(word);
+      } else if (word.length === longest.length) {
+        longestPalindromicStrings.push(word);
+      }
+    }
+  }
+  return longestPalindromicStrings;
+}
+
+console.log(getLongestPalindrome());
