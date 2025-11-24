@@ -211,7 +211,33 @@ function getLongestPalindrome(str = 'babad') {
 console.log(getLongestPalindrome());
 
 /****************************************************************
-    Find the Longest Palindromic Substrings (Brute Force Allowed)
-            Input: "babad"
-            Output: "bab" or "aba" 
+    Find All Anagram Pairs in an Array of String
+            Input: ["cat", "tac", "act", "dog"]
+            Output: ["cat", "tac", "act"] 
 *****************************************************************/
+
+function findAllAnagram(words = ['cat', 'tac', 'act', 'dog']) {
+  const anagramMap = {};
+
+  const getCountKey = (word) => {
+    const counts = new Array(26).fill(0);
+    for (let char of word) {
+      counts[char.charCodeAt(0) - 'a'.charCodeAt(0)]++; // to get same key for matching
+    }
+    return counts.join(','); // join because we want string as a key
+  };
+
+  for (const word of words) {
+    let key = getCountKey(word);
+    if (!(key in anagramMap)) {
+      // grp words by same key
+      anagramMap[key] = [];
+    }
+    anagramMap[key].push(word);
+  }
+
+  return Object.values(anagramMap)
+    .filter((pairs) => pairs.length > 1)
+    .flat();
+}
+console.log(findAllAnagram());
