@@ -55,6 +55,7 @@ console.log(reverse());
 *****************************************************************/
 
 function isSorted(arr = [5, 5, 5, 5]) {
+  if (!arr || !arr.length) throw new Error('Invalid input');
   let isAsc = false;
   let isDecided = false;
   for (let i = 0; i < arr.length - 1; i++) {
@@ -87,6 +88,7 @@ console.log(isSorted());
 *****************************************************************/
 
 function removeDuplicates(arr = [1, 2, 2, 3, 3, 4], filter = true, manual = false) {
+  if (!arr || !arr.length) throw new Error('Invalid input');
   if (manual) {
     let set = new Set();
     for (let i = 0; i < arr.length; i++) {
@@ -107,6 +109,8 @@ console.log(removeDuplicates());
 *****************************************************************/
 
 function mergeTwoArray(a = [1, 2, 3], b = [4, 5]) {
+  if (!a || !b || !a.length || !b.length) throw new Error('Invalid input');
+
   let merged = [];
   let n = a.length;
   let m = b.length;
@@ -127,7 +131,27 @@ function mergeTwoArray(a = [1, 2, 3], b = [4, 5]) {
 console.log(mergeTwoArray());
 
 /****************************************************************
-      Merge Two Arrays Without Using Concat or Spread
-            Input: [1, 2, 3] and [4, 5]
-            Output: [1, 2, 3, 4, 5]
+         Find the Second Largest Element
+            Input: [10, 20, 4, 45, 99]
+            Output: 45
 *****************************************************************/
+
+function getSecondLargest(nums = [10, 20, 4, 45, 99]) {
+  if (!nums || nums.length < 2) {
+    throw new Error('Array must have at least 2 elements');
+  }
+
+  let largest = Number.NEGATIVE_INFINITY;
+  let secondLargest = Number.NEGATIVE_INFINITY;
+
+  for (let num of nums) {
+    if (num > largest) {
+      secondLargest = largest;
+      largest = num;
+    }
+  }
+
+  return secondLargest
+}
+
+console.log(getSecondLargest());
