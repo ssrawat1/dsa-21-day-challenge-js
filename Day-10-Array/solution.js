@@ -29,12 +29,12 @@ function getMaxAndMin(arr = [10, 25, 3, 18]) {
 console.log(getMaxAndMin());
 
 /****************************************************************
-      Find the Maximum and Minimum Element
-            Input: [10, 25, 3, 18]
-            Output: Max = 25, Min = 3
+      Reverse an array (Manual Method Only)
+            Input:[1, 2, 3, 4, 5]
+            Output: [ 5, 4, 3, 2, 1 ]
 *****************************************************************/
 
-function reverse(arr = [1, 23, 4, 5]) {
+function reverse(arr = [1, 2, 3, 4, 5]) {
   if (!arr || !arr.length) throw new Error('Invalid input');
 
   let start = 0;
@@ -47,3 +47,35 @@ function reverse(arr = [1, 23, 4, 5]) {
 }
 
 console.log(reverse());
+
+/****************************************************************
+      Check if an Array is Sorted (Ascending)
+            Input: [1, 2, 3, 4, 5]
+            Output: Sorted
+*****************************************************************/
+
+function isSorted(arr = [5, 5, 5, 5]) {
+  let isAsc = false;
+  let isDecided = false;
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (!isDecided) {
+      if (arr[i] === arr[i + 1]) {
+        continue;
+      } else {
+        isDecided = true;
+        isAsc = arr[i] < arr[i + 1] ? true : false;
+      }
+    }
+
+    if (isAsc) {
+      if (arr[i] > arr[i + 1]) return 'Not Sorted In Ascending Order';
+    } else {
+      if (arr[i + 1] > arr[i]) return 'Not Sorted in Descending Order';
+    }
+  }
+
+  if (!isAsc && !isDecided) return 'Sorted In Ascending';
+  return isAsc ? 'Sorted In Ascending' : 'Sorted In Descending';
+}
+
+console.log(isSorted(arr));
