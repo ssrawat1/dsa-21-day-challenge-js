@@ -151,7 +151,31 @@ function getSecondLargest(nums = [10, 20, 4, 45, 99]) {
     }
   }
 
-  return secondLargest
+  return secondLargest;
 }
 
 console.log(getSecondLargest());
+
+/****************************************************************
+         Rotate an Array to the Right by K Steps
+            Input: [1, 2, 3, 4, 5] , K = 2
+            Output: [4, 5, 1, 2, 3]
+*****************************************************************/
+
+function rotateByKStep(arr = [1, 2, 3, 4, 5, 6, 7, 8, 9], K = 7) {
+  let n = arr.length;
+  let backup = arr.slice(0, n - K);
+  let idx = 0;
+
+  for (let i = n - K; i < n; i++) {
+    arr[idx] = arr[i];
+    idx++;
+  }
+
+  for (let i = 0; i < backup.length; i++) {
+    arr[idx + i] = backup[i];
+  }
+  return arr;
+}
+
+console.log(rotateByKStep());
