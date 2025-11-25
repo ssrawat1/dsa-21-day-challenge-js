@@ -250,3 +250,19 @@ function getUniquePairs(arr = [1, 2, 3, 4, 5], target = 6) {
 }
 
 console.log(getUniquePairs());
+
+/****************************************************************
+       Left Shift an Array by One Position
+            Input: [1, 2, 3, 4]
+            Output: [2, 3, 4, 1]
+*****************************************************************/
+
+function shiftByOne(arr = [1, 2, 3, 4]) {
+  for (let i = 0; i < arr.length-1; i++) {
+    [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+  }
+
+  return arr;
+}
+
+console.log(shiftByOne());
