@@ -17,7 +17,7 @@ function getMaxAndMin(arr = [10, 25, 3, 18]) {
     if (currMax > max) {
       max = currMax;
     }
-    let currMin = arr[i];
+    currMin = arr[i];
     if (currMin < min) {
       min = currMin;
     }
@@ -25,6 +25,8 @@ function getMaxAndMin(arr = [10, 25, 3, 18]) {
 
   return { max, min };
 }
+
+console.log(getMaxAndMin());
 
 /****************************************************************
       Find the Maximum and Minimum Element
@@ -39,7 +41,7 @@ function reverse(arr = [1, 23, 4, 5]) {
   let end = arr.length - 1;
 
   while (start < end) {
-    [arr[start], arr[end]] = [arr[end], arr[start]];
+    [arr[start++], arr[end--]] = [arr[end], arr[start]];
   }
   return arr;
 }
