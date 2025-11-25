@@ -241,3 +241,35 @@ function findAllAnagram(words = ['cat', 'tac', 'act', 'dog']) {
     .flat();
 }
 console.log(findAllAnagram());
+
+/****************************************************************
+    Find the longest substring without repeating characters (Sliding Window)
+            Input: "abcabcbb"
+            Output: "abc"
+*****************************************************************/
+
+function findLongestSubstring(str = 'pwwkewxpw') {
+  let set = new Set();
+  let currLongestSubSeq = '';
+  let longestSubSeq = '';
+  let left = 0;
+
+  for (let char of str) {
+    while (set.has(char)) {
+      // remove char left from the set until it is gone
+      set.delete(str[left]);
+      currLongestSubSeq = currLongestSubSeq.slice(1);
+      left++;
+    }
+
+    set.add(char);
+    currLongestSubSeq += char;
+
+    if (currLongestSubSeq.length > longestSubSeq.length) {
+      longestSubSeq = currLongestSubSeq;
+    }
+  }
+  return { longestSubSeq };
+}
+
+console.log(findLongestSubstring("abcabcbb"));
