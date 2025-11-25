@@ -4,40 +4,27 @@
             Output: Max = 25, Min = 3
 *****************************************************************/
 
-function getMax(arr = [10, 25, 3, 18]) {
+function getMaxAndMin(arr = [10, 25, 3, 18]) {
   if (!arr || !arr.length) throw new Error('Invalid input');
 
   let max = Number.NEGATIVE_INFINITY;
+  let min = Number.POSITIVE_INFINITY;
   let currMax = 0;
+  let currMin = 0;
 
   for (let i = 0; i < arr.length; i++) {
     currMax = arr[i];
     if (currMax > max) {
       max = currMax;
     }
-  }
-
-  return max;
-}
-
-function getMin(arr = [10, 25, 3, 18]) {
-  if (!arr || !arr.length) throw new Error('Invalid input');
-
-  let max = Number.POSITIVE_INFINITY;
-  let currMax = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    currMax = arr[i];
-    if (currMax < max) {
-      max = currMax;
+    let currMin = arr[i];
+    if (currMin < min) {
+      min = currMin;
     }
   }
 
-  return max;
+  return { max, min };
 }
-
-console.log(getMax());
-console.log(getMin());
 
 /****************************************************************
       Find the Maximum and Minimum Element
