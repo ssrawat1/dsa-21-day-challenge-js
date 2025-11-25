@@ -78,4 +78,24 @@ function isSorted(arr = [5, 5, 5, 5]) {
   return isAsc ? 'Sorted In Ascending' : 'Sorted In Descending';
 }
 
-console.log(isSorted(arr));
+console.log(isSorted());
+
+/****************************************************************
+      Remove All Duplicates from an Array (Use filter method)
+            Input: [1, 2, 2, 3, 3, 4]
+            Output: [1, 2, 3, 4]
+*****************************************************************/
+
+function removeDuplicates(arr = [1, 2, 2, 3, 3, 4], filter = true, manual = false) {
+  if (manual) {
+    let set = new Set();
+    for (let i = 0; i < arr.length; i++) {
+      if (!set.has(arr[i])) set.add(arr[i]);
+    }
+    return Array.from(set);
+  } else {
+    return arr.filter((element, i) => arr.indexOf(element) === i);
+  }
+}
+
+console.log(removeDuplicates());
