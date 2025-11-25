@@ -179,3 +179,23 @@ function rotateByKStep(arr = [1, 2, 3, 4, 5, 6, 7, 8, 9], K = 7) {
 }
 
 console.log(rotateByKStep());
+
+/****************************************************************
+        Check if Two Arrays Are Equal (Same Order)
+            Input: [1, 2, 3] vs [1, 2, 3]
+            Output: Equal
+*****************************************************************/
+
+function isEqual(a = [1, 2, 3], b = [1, 2, 3]) {
+  if (!a || !b || !a.length || !b.length) throw new Error('Invalid input');
+
+  if (a.length !== b.length) return 'Not Equal';
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) return 'Not Equal';
+  }
+
+  return 'Yes They are Equal';
+}
+
+console.log(isEqual());
