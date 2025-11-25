@@ -219,3 +219,34 @@ function getEvenOddCount(arr = [1, 5, 7, 8, 10]) {
 }
 
 console.log(getEvenOddCount());
+
+/****************************************************************
+       Find All Unique Pairs Whose Sum Equals a Target
+            Input: [1, 2, 3, 4, 5], target = 6
+            Output: (1,5), (2,4)
+*****************************************************************/
+
+function getUniquePairs(arr = [1, 2, 3, 4, 5], target = 6) {
+  if (!arr || !arr.length || typeof target !== 'number') {
+    throw new Error('Invalid arguments');
+  }
+  let seen = new Set();
+  let pairs = [];
+  for (const num of arr) {
+    const nextPair = target - num;
+    if (!seen.has(nextPair)) {
+      seen.add(num);
+    } else {
+      const a = Math.min(num, nextPair);
+      const b = Math.max(num, nextPair);
+      let key = a + '' + b;
+      if (!seen.has(key)) {
+        seen.add(key);
+        pairs.push([a, b]);
+      }
+    }
+  }
+  return pairs;
+}
+
+console.log(getUniquePairs());
