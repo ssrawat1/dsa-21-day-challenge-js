@@ -258,7 +258,7 @@ console.log(getUniquePairs());
 *****************************************************************/
 
 function shiftByOne(arr = [1, 2, 3, 4]) {
-  for (let i = 0; i < arr.length-1; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
   }
 
@@ -266,3 +266,20 @@ function shiftByOne(arr = [1, 2, 3, 4]) {
 }
 
 console.log(shiftByOne());
+
+/****************************************************************
+      Count How Many Times an Element Appears in an Array
+            Input: [1, 4, 4, 4, 2], element = 4
+            Output: 3
+*****************************************************************/
+
+function getElementAppearance(nums = [1, 4, 4, 4, 2], element = 4) {
+  let count = 0;
+  for (const num of nums) {
+    if (num === element) count++;
+  }
+
+  return { element, appearance: count };
+}
+
+console.log(getElementAppearance());
