@@ -125,3 +125,9 @@ function mergeTwoArray(a = [1, 2, 3], b = [4, 5]) {
 }
 
 console.log(mergeTwoArray());
+
+/****************************************************************
+      Merge Two Arrays Without Using Concat or Spread
+            Input: [1, 2, 3] and [4, 5]
+            Output: [1, 2, 3, 4, 5]
+*****************************************************************/
