@@ -99,3 +99,29 @@ function removeDuplicates(arr = [1, 2, 2, 3, 3, 4], filter = true, manual = fals
 }
 
 console.log(removeDuplicates());
+
+/****************************************************************
+      Merge Two Arrays Without Using Concat or Spread
+            Input: [1, 2, 3] and [4, 5]
+            Output: [1, 2, 3, 4, 5]
+*****************************************************************/
+
+function mergeTwoArray(a = [1, 2, 3], b = [4, 5]) {
+  let merged = [];
+  let n = a.length;
+  let m = b.length;
+  let length = n + m;
+  let idx = 0;
+  for (let i = 0; i < length; i++) {
+    if (i < n) {
+      merged[i] = a[i];
+    } else {
+      merged[i] = b[idx];
+      idx++;
+    }
+  }
+
+  return merged;
+}
+
+console.log(mergeTwoArray());
