@@ -199,3 +199,23 @@ function isEqual(a = [1, 2, 3], b = [1, 2, 3]) {
 }
 
 console.log(isEqual());
+
+/****************************************************************
+       Count Even and Odd Numbers in an Array
+            Input: [1, 5, 7, 8, 10]
+            Output: Even = 3, Odd = 2
+*****************************************************************/
+
+function getEvenOddCount(arr = [1, 5, 7, 8, 10]) {
+  if (!arr || !arr.length) throw new Error('Invalid Arguments');
+
+  let EvenCount = 0;
+  let OddCount = 0;
+
+  for (const num of arr) {
+    num % 2 == 0 ? OddCount++ : EvenCount++;
+  }
+  return { EvenCount, OddCount };
+}
+
+console.log(getEvenOddCount());
