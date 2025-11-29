@@ -22,8 +22,8 @@ console.log(findMissing());
 
 /****************************************************************
       Move All zeroes to End (Stable, O(n))
-            Input: [0,1,0,3,12]
-            Output: [1,3,12,0,0]
+            Input: [0, 1, 0, 3, 12]
+            Output: [1, 3, 12, 0, 0]
 *****************************************************************/
 
 function moveZeoresToEnd(nums = [0, 1, 0, 3, 12]) {
@@ -44,3 +44,23 @@ function moveZeoresToEnd(nums = [0, 1, 0, 3, 12]) {
 }
 
 console.log(moveZeoresToEnd());
+
+/****************************************************************
+      Find the First Repeating Element In an Array
+            Input: [10, 5, 3, 4, 3, 5, 6]
+            Output: 3
+*****************************************************************/
+
+function getFirstRepeatingElement(nums = [10, 5, 3, 4, 3, 5, 6]) {
+  let seen = new Set();
+  for (let num of nums) {
+    if (seen.has(num)) {
+      return { repeatingElement: num };
+    }
+    seen.add(num);
+  }
+
+  return { repeatingElement: null };
+}
+
+console.log(getFirstRepeatingElement());
