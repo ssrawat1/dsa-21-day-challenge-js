@@ -122,3 +122,28 @@ function getLongestSubarray(arr = [1, 2, 3], K = 100) {
 }
 
 console.log(getLongestSubarray());
+
+/****************************************************************
+      Find the length of the longest subarray with no repeating elements
+            Input: [1, 2, 3, 1, 2, 3, 4]
+            Output: 4
+*****************************************************************/
+
+function getLongestSubarrayLength(arr = [1, 2, 3, 2, 4, 5]) {
+  let set = new Set();
+  let left = 0;
+  let maxLength = 0;
+  for (let i = 0; i < arr.length; i++) {
+    while (set.has(arr[i])) {
+      set.delete(arr[left]);
+      left++;
+    }
+
+    set.add(arr[i]);
+    maxLength = Math.max(maxLength, i + 1 - left);
+  }
+
+  return { maxLength };
+}
+
+console.log(getLongestSubarrayLength());
