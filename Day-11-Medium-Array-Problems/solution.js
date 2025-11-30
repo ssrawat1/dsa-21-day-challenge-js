@@ -123,11 +123,11 @@ function getLongestSubarray(arr = [1, 2, 3], K = 100) {
 
 console.log(getLongestSubarray());
 
-/****************************************************************
+/************************************************************************
       Find the length of the longest subarray with no repeating elements
             Input: [1, 2, 3, 1, 2, 3, 4]
             Output: 4
-*****************************************************************/
+*************************************************************************/
 
 function getLongestSubarrayLength(arr = [1, 2, 3, 2, 4, 5]) {
   let set = new Set();
@@ -147,3 +147,34 @@ function getLongestSubarrayLength(arr = [1, 2, 3, 2, 4, 5]) {
 }
 
 console.log(getLongestSubarrayLength());
+
+/****************************************************************
+        Maximum Subarray (Kadane's Algorithm -> O(n))
+            Input: [1, 2, 3, 1, 2, 3, 4]
+            Output: 4
+*****************************************************************/
+
+function getSubarrayOfMaximumSum(arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]) {
+  let currentSum = 0;
+  let maxSum = -Infinity;
+  let tempIdx = 0;
+  let startIdx = 0;
+  let endIdx = 0;
+  for (let i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+    if (maxSum < currentSum) {
+      maxSum = currentSum;
+      endIdx = i;
+      startIdx = tempIdx;
+    }
+
+    if (currentSum < 0) {
+      currentSum = 0;
+      tempIdx = i + 1;
+    }
+  }
+
+  return { subArray: arr.slice(startIdx, endIdx + 1) };
+}
+
+console.log(getSubarrayOfMaximumSum());
