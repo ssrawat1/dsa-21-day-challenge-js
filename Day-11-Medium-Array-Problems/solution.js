@@ -89,3 +89,36 @@ function getMaximumSubarraySum(arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]) {
 }
 
 console.log(getMaximumSubarraySum());
+
+/****************************************************************
+      Find the longest subarray with sum = k
+            Input: [1, 2, 3, 4, 5] , K = 9
+            Output: [2, 3, 4]
+*****************************************************************/
+function getLongestSubarray(arr = [1, 2, 3], K = 100) {
+  let startIdx = -1;
+  let endIdx = -1;
+  let longestLength = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0;
+
+    for (let j = i; j < arr.length; j++) {
+      sum += arr[j];
+
+      if (sum === K) {
+        let currentLength = j - i + 1;
+
+        if (currentLength > longestLength) {
+          longestLength = currentLength;
+          startIdx = i;
+          endIdx = j;
+        }
+      }
+    }
+  }
+
+  return startIdx !== -1 ? { subarray: arr.slice(startIdx, endIdx + 1) } : [];
+}
+
+console.log(getLongestSubarray());
