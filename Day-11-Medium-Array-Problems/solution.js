@@ -123,16 +123,17 @@ function getLongestSubarray(arr = [1, 2, 3], K = 100) {
 
 console.log(getLongestSubarray());
 
-/************************************************************************
+/*****************************************************************************
       Find the length of the longest subarray with no repeating elements
             Input: [1, 2, 3, 1, 2, 3, 4]
             Output: 4
-*************************************************************************/
+******************************************************************************/
 
 function getLongestSubarrayLength(arr = [1, 2, 3, 2, 4, 5]) {
   let set = new Set();
   let left = 0;
   let maxLength = 0;
+
   for (let i = 0; i < arr.length; i++) {
     while (set.has(arr[i])) {
       set.delete(arr[left]);
@@ -160,6 +161,7 @@ function getSubarrayOfMaximumSum(arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]) {
   let tempIdx = 0;
   let startIdx = 0;
   let endIdx = 0;
+
   for (let i = 0; i < arr.length; i++) {
     currentSum += arr[i];
     if (maxSum < currentSum) {
@@ -178,3 +180,38 @@ function getSubarrayOfMaximumSum(arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]) {
 }
 
 console.log(getSubarrayOfMaximumSum());
+
+/****************************************************************
+       Find the longest increasing subarray (Continuous)
+            Input: [1, 2, 2, 3, 4, 5]
+            Output: length = 4,  SubArray = [2, 3, 4, 5] 
+*****************************************************************/
+
+function getLongestIncreasingSubarray(arr = [2, 2, 2, 2]) {
+  if (arr.length <= 1) return { length: arr.length, SubArray: arr };
+
+  let length = 1;
+  let startIdx = 0;
+  let endIdx = 0;
+  let tempIdx = 0;
+  let maxLength = 1;
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] >= arr[i + 1]) {
+      length = 0;
+      tempIdx = i + 1;
+    }
+
+    length++;
+
+    if (length > maxLength) {
+      maxLength = length;
+      startIdx = tempIdx;
+      endIdx = i + 1;
+    }
+  }
+  console.log({ startIdx, endIdx });
+  return { length: maxLength, SubArray: arr.slice(startIdx, endIdx + 1) };
+}
+
+console.log(getLongestIncreasingSubarray());
