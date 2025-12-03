@@ -1,6 +1,6 @@
 /**************************************************************************
            Sort an Array in Ascending Order Using Bubble Sort: 
-           input: [5, 3, 8, 4, 2]
+           Input: [5, 3, 8, 4, 2]
            TC -> O (n^2)
            Note -> For Descending order just reverse the inner condition
  **************************************************************************/
@@ -25,7 +25,7 @@ console.log(sortArrayInAsc());
 
 /**************************************************************************
            Sort a String Alphabetically Using Bubble Sort Logic
-           input: "javascript"
+           Input: "javascript"
            TC -> O (n^2)
  **************************************************************************/
 
@@ -68,8 +68,8 @@ console.log(sortStrInAsc());
 
 /**************************************************************************
       Sort Only the Even Numbers in an Array (Odd Numbers Stay in Place)
-           input: [9, 4, 2, 7, 6, 5]
-           output: [9, 2, 4, 7, 6, 5]
+           Input: [9, 4, 2, 7, 6, 5]
+           Output: [9, 2, 4, 7, 6, 5]
            TC -> O (n^2)
  **************************************************************************/
 
@@ -91,8 +91,8 @@ console.log(sortEvenNum());
 
 /**************************************************************************
       Sort an array and count the number of swaps performed 
-           input: [4, 3, 2, 1]
-           output:  6
+           Input: [4, 3, 2, 1]
+           Output: sorted = [1, 2, 3, 4], count =  6
            TC -> O (n^2)
  **************************************************************************/
 
@@ -111,7 +111,43 @@ function sortArraySwapCount(arr = [4, 3, 2, 1]) {
       break;
     }
   }
-  return { totalSwapCount: count };
+  return { sortedArr: arr, totalSwapCount: count };
 }
 
 console.log(sortArraySwapCount());
+
+/**************************************************************************
+      Sort an Array of Objects by Age (Ascending)
+          Input : [
+                   { name: 'A', age: 25 },
+                   { name: 'B', age: 20 },
+                   { name: 'C', age: 30 },
+                 ];
+
+           Output:  Sorted by age.
+           TC -> O (n^2)
+ **************************************************************************/
+
+let arr = [
+  { name: 'A', age: 25 },
+  { name: 'B', age: 20 },
+  { name: 'C', age: 30 },
+];
+
+function sortByAge(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j].age > arr[j + 1].age) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[i]];
+        isSwap = true;
+      }
+    }
+    if (!isSwap) {
+      break;
+    }
+  }
+  return arr;
+}
+
+console.log(sortByAge(arr));
