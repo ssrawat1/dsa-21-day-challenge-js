@@ -88,3 +88,30 @@ function sortEvenNum(arr = [9, 4, 2, 7, 6, 5]) {
 }
 
 console.log(sortEvenNum());
+
+/**************************************************************************
+      Sort an array and count the number of swaps performed 
+           input: [4, 3, 2, 1]
+           output:  6
+           TC -> O (n^2)
+ **************************************************************************/
+
+function sortArraySwapCount(arr = [4, 3, 2, 1]) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        isSwap = true;
+        count++;
+      }
+    }
+    if (!isSwap) {
+      break;
+    }
+  }
+  return { totalSwapCount: count };
+}
+
+console.log(sortArraySwapCount());
