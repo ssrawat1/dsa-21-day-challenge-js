@@ -151,3 +151,31 @@ function sortByAge(arr) {
 }
 
 console.log(sortByAge(arr));
+
+/**************************************************************************
+      Sort an Array but Keep Zeros at the End (Zeros Fixed)
+          Input: [3, 0, 5, 0, 2, 1]
+          Output: [1, 2, 3, 5, 0, 0]
+          TC -> O (n^2)
+ **************************************************************************/
+
+function moveZerosAtEnd(arr = [3, 0, 5, 0, 2, 1]) {
+  let p1 = 0;
+  let p2 = 1;
+
+  while (p2 < arr.length) {
+    if (arr[p1] === 0 && arr[p2] !== 0) {
+      [arr[p1], arr[p2]] = [arr[p2], arr[p1]];
+      p1++;
+      p2++;
+    } else if (arr[p1] === 0 && arr[p2] === 0) {
+      p2++;
+    } else {
+      p1++;
+      p2++;
+    }
+  }
+  return arr;
+}
+
+console.log(moveZerosAtEnd());
