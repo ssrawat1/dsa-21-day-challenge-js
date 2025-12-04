@@ -209,3 +209,27 @@ function sortChar(arr = ['b', 'A', 'd', 'C']) {
 }
 
 console.log(sortChar());
+
+/**************************************************************** 
+        Sort a 2D Array by the First Element of Each Subarray
+                 Input: [[3, "c"], [1, "a"], [2, "b"]]
+                 Output: [[1, "a"], [2, "b"], [3, "c"]]
+*****************************************************************/
+
+function sort2DArray(arr = [[3, 'c'], [1, 'a'], [2, 'b']]) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      const [a] = arr[j];
+      const [b] = arr[j + 1];
+      if (a > b) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        isSwap = true;
+      }
+    }
+    if (!isSwap) break;
+  }
+  return arr;
+}
+
+console.log(sort2DArray());
