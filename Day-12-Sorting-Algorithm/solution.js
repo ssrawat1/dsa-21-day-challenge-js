@@ -179,3 +179,33 @@ function moveZerosAtEnd(arr = [3, 0, 5, 0, 2, 1]) {
 }
 
 console.log(moveZerosAtEnd());
+
+/**************************************************************** 
+        Sort an Array of Characters Case-Insensitive
+                 Input: ['b', 'A', 'd', 'C']
+                 Output: ['A', 'b', 'C', 'd']
+
+****************************************************************/
+
+function toLowerCase(char) {
+  let code = char.charCodeAt(0);
+  return code >= 65 && code <= 90 ? String.fromCharCode(code + 32) : char;
+}
+
+function sortChar(arr = ['b', 'A', 'd', 'C']) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      let ch1 = toLowerCase(arr[j]);
+      let ch2 = toLowerCase(arr[j + 1]);
+      if (ch1 > ch2) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        isSwap = true;
+      }
+    }
+    if (!isSwap) break;
+  }
+  return arr;
+}
+
+console.log(sortChar());
