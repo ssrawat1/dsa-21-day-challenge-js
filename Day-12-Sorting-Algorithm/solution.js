@@ -216,7 +216,13 @@ console.log(sortChar());
                  Output: [[1, "a"], [2, "b"], [3, "c"]]
 *****************************************************************/
 
-function sort2DArray(arr = [[3, 'c'], [1, 'a'], [2, 'b']]) {
+function sort2DArray(
+  arr = [
+    [3, 'c'],
+    [1, 'a'],
+    [2, 'b'],
+  ]
+) {
   for (let i = 0; i < arr.length; i++) {
     let isSwap = false;
     for (let j = 0; j < arr.length - 1 - i; j++) {
@@ -233,3 +239,28 @@ function sort2DArray(arr = [[3, 'c'], [1, 'a'], [2, 'b']]) {
 }
 
 console.log(sort2DArray());
+
+/**************************************************************** 
+        Sort an Array in Ascending Order but Stop After K Passes
+                Input: [5, 4, 3, 2, 1], K = 2
+                Output: Array state after 2 bubble sort passes.
+*****************************************************************/
+
+function sortUptoK(arr = [5, 4, 3, 2, 1], K = 2) {
+  for (let i = 0; i < K; i++) {
+    let isSwap = false;
+
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        isSwap = true;
+      }
+    }
+
+    if (!isSwap) break;
+  }
+
+  return arr;
+}
+
+console.log(sortUptoK());
