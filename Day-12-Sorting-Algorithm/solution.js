@@ -264,3 +264,25 @@ function sortUptoK(arr = [5, 4, 3, 2, 1], K = 2) {
 }
 
 console.log(sortUptoK());
+
+/******************************************************************
+      Sort an Array of Strings by Length (Shortest to Longest)
+              Input: ["hi", "javascript", "is", "fun"]
+              Output: ["hi", "is", "fun", "javascript"]
+ *******************************************************************/
+
+function sortByLength(arr = ['hi', 'javascript', 'is', 'fun']) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j].length > arr[j + 1].length) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        isSwap = true;
+      }
+    }
+    if (!isSwap) break;
+  }
+  return arr;
+}
+
+console.log(sortByLength());
