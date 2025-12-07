@@ -95,3 +95,22 @@ function sortInAsc(arr = [7, 2, 9, 4, 1]) {
 }
 
 console.log(sortInAsc());
+
+/******************************************************************
+    Sort an Array of Objects by Name
+          Input:[{ name: "Charlie" }, { name: "Alice" }, { name: "Bob" }];
+          Output: Sorted alphabetically by name.
+ *******************************************************************/
+
+function sortByName(arr = [{ name: 'Charlie' }, { name: 'Alice' }, { name: 'Bob' }]) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j].name.toLowerCase() < arr[i].name.toLowerCase()) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(sortByName());
