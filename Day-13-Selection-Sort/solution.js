@@ -69,3 +69,29 @@ function getKthSmallestElement(arr = [9, 4, 7, 1, 3], K = 3) {
 }
 
 console.log(getKthSmallestElement());
+
+/******************************************************************
+    Selection Sort but Track Index of Minimum for Each Pass
+                 Input: [4, 2, 5, 3, 1]
+                 Output:
+                 Pass 1 → min index = 4
+                 Pass 2 → min index = 3
+ *******************************************************************/
+
+function sortInAsc(arr = [7, 2, 9, 4, 1]) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let minIdx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIdx]) {
+        minIdx = j;
+      }
+    }
+    if (minIdx !== i) {
+      [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+    }
+    console.log(`Pass ${i + 1} -> min index = ${minIdx}`);
+  }
+  return arr;
+}
+
+console.log(sortInAsc());
