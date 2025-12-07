@@ -28,9 +28,10 @@ console.log(sortInAsc());
 
  *******************************************************************/
 
-function sortInDesc(arr = [3, 8, 5, 2, 9]) {
+function sortInDesc(arr = [9, 8, 5, 3, 1]) {
   for (let i = 0; i < arr.length - 1; i++) {
     let minIdx = i;
+    console.log({ minIdx });
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] > arr[minIdx]) {
         minIdx = j;
@@ -44,3 +45,27 @@ function sortInDesc(arr = [3, 8, 5, 2, 9]) {
 }
 
 console.log(sortInDesc());
+
+/******************************************************************
+     Find the Kth Smallest Element Using Selection Logic
+                   Input: [9, 4, 7, 1, 3], K = 3
+                   Output: 4
+ *******************************************************************/
+
+function getKthSmallestElement(arr = [9, 4, 7, 1, 3], K = 3) {
+  for (let i = 0; i < K; i++) {
+    let isSwap = false;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[i]) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        isSwap = true;
+      }
+    }
+    if (!isSwap) {
+      break;
+    }
+  }
+  return arr[K - 1];
+}
+
+console.log(getKthSmallestElement());
