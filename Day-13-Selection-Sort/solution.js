@@ -133,7 +133,38 @@ function kLargestElement(arr = [5, 1, 9, 3, 7], K = 2) {
       [arr[i], arr[idx]] = [arr[idx], arr[i]];
     }
   }
-  return  arr.slice(0,K)
+  return arr.slice(0, K);
 }
 
 console.log(kLargestElement());
+
+/**********************************************************************************
+          Sort a 2D Array by Second Element in Each Subarray
+                Input: [[3, 9], [1, 4], [2, 5]]
+                Output: Sorted by second values → [[1,4], [2,5], [3,9]]
+ **********************************************************************************/
+
+function sortBy2ndElement(
+  arr = [
+    [3, 9],
+    [1, 4],
+    [2, 5],
+  ]
+) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let idx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j][1] < arr[idx][1]) {
+        idx = j;
+      }
+    }
+    if (i !== idx) {
+      [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    }
+  }
+  return arr;
+}
+
+console.log(sortBy2ndElement());
+
+
