@@ -78,7 +78,7 @@ console.log(getKthSmallestElement());
                  Pass 2 → min index = 3
  *******************************************************************/
 
-function sortInAsc(arr = [7, 2, 9, 4, 1]) {
+function trackSortIndex(arr = [7, 2, 9, 4, 1]) {
   for (let i = 0; i < arr.length - 1; i++) {
     let minIdx = i;
     for (let j = i + 1; j < arr.length; j++) {
@@ -94,7 +94,7 @@ function sortInAsc(arr = [7, 2, 9, 4, 1]) {
   return arr;
 }
 
-console.log(sortInAsc());
+console.log(trackSortIndex());
 
 /******************************************************************
     Sort an Array of Objects by Name
@@ -114,3 +114,9 @@ function sortByName(arr = [{ name: 'Charlie' }, { name: 'Alice' }, { name: 'Bob'
 }
 
 console.log(sortByName());
+
+/******************************************************************
+    Sort an Array of Objects by Name
+          Input:[{ name: "Charlie" }, { name: "Alice" }, { name: "Bob" }];
+          Output: Sorted alphabetically by name.
+ *******************************************************************/
