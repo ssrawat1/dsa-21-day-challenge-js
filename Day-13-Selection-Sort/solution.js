@@ -167,4 +167,27 @@ function sortBy2ndElement(
 
 console.log(sortBy2ndElement());
 
+/**********************************************************************************
+          Sort an Array and Count How Many Times Minimum Changed
+                 Input: [8, 3, 5, 2, 6]
+                 Output: Number of times a new minimum was found.
+ **********************************************************************************/
 
+function minChangedCountWhileSorting(arr = [8, 3, 5, 2, 6]) {
+  let count = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    let idx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[idx]) {
+        idx = j;
+        count++
+      }
+    }
+    if (i !== idx) {
+      [arr[i], arr[idx]] = [arr[idx], arr[i]];
+     }
+  }
+  return count;
+}
+
+console.log(minChangedCountWhileSorting());
