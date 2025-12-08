@@ -217,3 +217,32 @@ function sortAtEvenIndex(arr = [9, 4, 7, 6, 3, 2]) {
 }
 
 console.log(sortAtEvenIndex());
+
+/**************************************************************************
+        Sort an Array of Characters by ASCII Value
+               Input: ['d', 'A', 'c', 'B']
+               Output: Sorted by ASCII: ['A', 'B', 'c', 'd']
+ **************************************************************************/
+
+function convertToUpperCase(ch) {
+  let code = ch.charCodeAt(0);
+  console.log({ code });
+  return code >= 97 && code <= 122 ? String.fromCharCode(code - 32) : ch;
+}
+
+function sortCharByAscii(arr = ['d', 'A', 'c', 'B']) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let idx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[idx]) {
+        idx = j;
+      }
+    }
+    if (i !== idx) {
+      [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    }
+  }
+  return arr;
+}
+
+console.log(sortCharByAscii());
