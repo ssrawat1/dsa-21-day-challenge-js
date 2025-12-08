@@ -180,14 +180,40 @@ function minChangedCountWhileSorting(arr = [8, 3, 5, 2, 6]) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[idx]) {
         idx = j;
-        count++
+        count++;
       }
     }
     if (i !== idx) {
       [arr[i], arr[idx]] = [arr[idx], arr[i]];
-     }
+    }
   }
   return count;
 }
 
 console.log(minChangedCountWhileSorting());
+
+/**********************************************************************************
+         Sort Only Elements at Even Indexes
+             Input: [9, 4, 7, 6, 3, 2]
+             Even index elements: 9, 7, 3
+             Output: Sort only these positions using selection logic.
+ **********************************************************************************/
+
+function sortAtEvenIndex(arr = [9, 4, 7, 6, 3, 2]) {
+  let n = arr.length % 2 === 0 ? arr.length - 2 : arr.length - 1;
+
+  for (let i = 0; i <= n; i += 2) {
+    let idx = i;
+    for (let j = i + 2; j < arr.length; j += 2) {
+      if (arr[j] < arr[idx]) {
+        idx = j;
+      }
+    }
+    if (i !== idx) {
+      [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    }
+  }
+  return arr;
+}
+
+console.log(sortAtEvenIndex());
