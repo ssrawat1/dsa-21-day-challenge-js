@@ -115,8 +115,25 @@ function sortByName(arr = [{ name: 'Charlie' }, { name: 'Alice' }, { name: 'Bob'
 
 console.log(sortByName());
 
-/******************************************************************
-    Sort an Array of Objects by Name
-          Input:[{ name: "Charlie" }, { name: "Alice" }, { name: "Bob" }];
-          Output: Sorted alphabetically by name.
- *******************************************************************/
+/**********************************************************************************
+          Find the K Largest Elements Without Full Sorting
+                 Input: [5, 1, 9, 3, 7], K = 2
+                 Output: [9, 7] (Stop early once top K elements are placed.)
+ **********************************************************************************/
+
+function kLargestElement(arr = [5, 1, 9, 3, 7], K = 2) {
+  for (let i = 0; i < K; i++) {
+    let idx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] > arr[idx]) {
+        idx = j;
+      }
+    }
+    if (i !== idx) {
+      [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    }
+  }
+  return  arr.slice(0,K)
+}
+
+console.log(kLargestElement());
