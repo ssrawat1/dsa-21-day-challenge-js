@@ -5,17 +5,16 @@
  ********************************************************************************/
 
 function sortArrayByInsertion(arr = [9, 5, 1, 4, 3]) {
-  for (let i = 0; i < arr.length; i++) {
-    let current = arr[i + 1]
-    let idx = i
-    while (idx !== 0 && arr[idx] > current) {
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i]
+    let idx = i - 1
+    while (idx >= 0 && arr[idx] > current) {
+      arr[idx + 1] = arr[idx]
       idx--
     }
-    arr[idx] = current
+    arr[idx + 1] = current
   }
-
   return arr
-
 }
 
 console.log(sortArrayByInsertion())
