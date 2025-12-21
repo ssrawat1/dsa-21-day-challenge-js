@@ -153,3 +153,26 @@ function isSortedAfterFirstInsertion(arr = [1, 2, 4, 5, 3]) {
 }
 
 console.log(isSortedAfterFirstInsertion())
+
+
+/*************************************************************************************
+       Use Insertion Sort to Sort Only the Even Index Positions
+               Input: [9, 1, 8, 2, 7, 3]
+               Sort positions 0, 2, 4 only
+               Output: [ 7, 1, 8, 2, 9, 3 ]
+***************************************************************************************/
+
+function sortEvenPositionElement(arr = [9, 1, 8, 2, 7, 3]) {
+  for (let i = 2; i < arr.length; i += 2) {
+    const current = arr[i];
+    let idx = i - 2;
+    while (idx >= 0 && arr[idx] > current) {
+      arr[idx + 2] = arr[idx]
+      idx -= 2
+    }
+    arr[idx + 2] = current
+  }
+  return arr
+};
+
+console.log(sortEvenPositionElement())
