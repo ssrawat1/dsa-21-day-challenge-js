@@ -88,3 +88,25 @@ function sortOdd(arr = [9, 4, 7, 6, 3, 2]) {
 }
 
 console.log(sortOdd())
+
+
+/*************************************************************************************
+       Sort an Array Using Insertion Sort but Print Array After Each Pass
+              Input: [5, 2, 4, 6, 1]
+              Output: State of array after each insertion step.
+***************************************************************************************/
+
+function printArrayAfterEachInsertion(arr = [5, 2, 4, 6, 1]) {
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i]
+    let idx = i - 1
+    while (idx >= 0 && arr[idx] > current) {
+      arr[idx + 1] = arr[idx]
+      idx--
+    }
+    arr[idx + 1] = current
+    console.log(`Pass ${i}:`, [...arr]);
+  }
+}
+
+printArrayAfterEachInsertion()
