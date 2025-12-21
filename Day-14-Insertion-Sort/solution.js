@@ -110,3 +110,24 @@ function printArrayAfterEachInsertion(arr = [5, 2, 4, 6, 1]) {
 }
 
 printArrayAfterEachInsertion()
+
+
+/*************************************************************************************
+       Find the Position Where an Element Should Be Inserted in a Sorted Array
+                 Input: [2, 4, 6, 8], element = 5
+                 Output: Index where 5 should be placed.
+***************************************************************************************/
+
+function insertElementAtRightPosition(arr = [2, 4, 6, 8], element = 5) {
+  arr.push(null);
+
+  let i = arr.length - 2;
+  while (i >= 0 && arr[i] > element) {
+    arr[i + 1] = arr[i];
+    i--;
+  }
+  arr[i + 1] = element;
+  return arr;
+}
+
+console.log(insertElementAtRightPosition());
