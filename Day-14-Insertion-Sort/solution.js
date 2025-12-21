@@ -62,3 +62,29 @@ function insertIntoSorted(arr = [5, 6, 7, 8, 9], n = 4) {
 }
 
 console.log(insertIntoSorted())
+
+
+/*************************************************************************************
+       Sort an Array but Keep Odd Numbers Fixed
+             Input: [9, 4, 7, 6, 3, 2]
+             Output: Sort evens only, odd positions unchanged.
+***************************************************************************************/
+
+function sortOdd(arr = [9, 4, 7, 6, 3, 2]) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) continue
+    let current = arr[i]
+    let idx = i - 1;
+    let swapIdx = i
+    while (idx >= 0) {
+      if (arr[idx] % 2 == 0 && arr[idx] > current) {
+        [arr[idx], arr[swapIdx]] = [arr[swapIdx], arr[idx]];
+        swapIdx = idx
+      }
+      idx--
+    }
+  };
+  return arr
+}
+
+console.log(sortOdd())
