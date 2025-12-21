@@ -131,3 +131,25 @@ function insertElementAtRightPosition(arr = [2, 4, 6, 8], element = 5) {
 }
 
 console.log(insertElementAtRightPosition());
+
+
+/*************************************************************************************
+       Check If an Array Becomes Sorted After Inserting One Element
+               Input: [1, 2, 4, 5, 3]
+               Output: Yes / No ✨ Essentially simulate “one-step insertion”.
+***************************************************************************************/
+
+function isSortedAfterFirstInsertion(arr = [1, 2, 4, 5, 3]) {
+  let unsortedCount = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (unsortedCount > 1) return "NO"
+    if (arr[i] > arr[i + 1]) {
+      unsortedCount++;
+    }
+  }
+
+  return "YES"
+}
+
+console.log(isSortedAfterFirstInsertion())
