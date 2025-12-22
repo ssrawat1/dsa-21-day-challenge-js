@@ -44,3 +44,21 @@ function getLastOccurrence(arr = [3, 5, 3, 7, 3], search = 3) {
   }
 };
 console.log(getLastOccurrence())
+
+
+/********************************************************************************
+       Count How Many Times an Element Appears
+               Input: [1, 2, 2, 3, 2, 4], element = 2
+               Output: 3 times
+ ********************************************************************************/
+
+function findOccurrencesOfElements(arr = [1, 2, 2, 3, 2, 4], element = 2) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) count++
+
+  }
+  return { Element: element, Appearance: count }
+}
+
+console.log(findOccurrencesOfElements())
