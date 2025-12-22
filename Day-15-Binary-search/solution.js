@@ -177,7 +177,7 @@ console.log(getMaxValue())
                Output: 12
  ********************************************************************************/
 
-function getGreaterThanX(arr = [2, 5, 9, 12, 15], X = 10){
+function getGreaterThanX(arr = [2, 5, 9, 12, 15], X = 10) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > X) return arr[i]
 
@@ -185,3 +185,17 @@ function getGreaterThanX(arr = [2, 5, 9, 12, 15], X = 10){
   return "No element is greater than X"
 };
 console.log(getGreaterThanX())
+
+/********************************************************************************
+        Check if Array is Strictly Increasing (Using Linear Scan)
+                   Input: [1, 2, 3, 5, 4]
+                   Output: false
+ ********************************************************************************/
+
+function isStrictlyIncreasing(arr = [1, 2, 3, 5, 4]) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] > arr[i]) return { isIncreasing: false }
+  }
+  return { isIncreasing: true }
+};
+console.log(isStrictlyIncreasing())
