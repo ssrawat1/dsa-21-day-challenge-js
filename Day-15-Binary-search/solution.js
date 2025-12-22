@@ -25,8 +25,22 @@ console.log(searchElement())
 
 function getFirstOccurrence(arr = [3, 5, 3, 7, 3], search = 3) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === search) return { index: i }
+    if (arr[i] === search) return { firstIndex: i }
 
   }
 };
 console.log(getFirstOccurrence())
+
+/********************************************************************************
+       Find the Last Occurrence of an Element
+               Input: [3, 5, 3, 7, 3], search = 3
+               Output: index 4
+ ********************************************************************************/
+
+function getLastOccurrence(arr = [3, 5, 3, 7, 3], search = 3) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] === search) return { lastIndex: i }
+
+  }
+};
+console.log(getLastOccurrence())
