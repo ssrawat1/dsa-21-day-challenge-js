@@ -144,7 +144,7 @@ console.log(isExist(array, element))
               Output: 1
  ********************************************************************************/
 
-function getMaximumValue(arr = [9, 3, 5, 1, 7]) {
+function getMinimumValue(arr = [9, 3, 5, 1, 7]) {
   let minVal = Infinity;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < minVal) {
@@ -154,7 +154,7 @@ function getMaximumValue(arr = [9, 3, 5, 1, 7]) {
   return { minVal }
 };
 
-console.log(getMaximumValue())
+console.log(getMinimumValue())
 
 /********************************************************************************
         Find the Maximum Value Using Linear Scan
