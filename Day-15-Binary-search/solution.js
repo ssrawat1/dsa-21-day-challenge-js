@@ -155,3 +155,18 @@ function getMaximumValue(arr = [9, 3, 5, 1, 7]) {
 };
 
 console.log(getMaximumValue())
+
+/********************************************************************************
+        Find the Maximum Value Using Linear Scan
+             Input: [4, 9, 2, 11, 6]
+             Output: 11
+ ********************************************************************************/
+
+function getMaxValue(arr = [4, 9, 2, 11, 6]) {
+  let maxValue = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > maxValue) maxValue = arr[i]
+  }
+  return { maxValue }
+};
+console.log(getMaxValue())
