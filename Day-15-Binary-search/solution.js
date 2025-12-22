@@ -97,7 +97,7 @@ let arr = [
   { id: 2, name: "B" },
   { id: 3, name: "C" },
 ];
-let id = 3
+let id = 2
 
 function getElementById(arr, id) {
   for (let i = 0; i < arr.length; i++) {
@@ -107,3 +107,32 @@ function getElementById(arr, id) {
 }
 
 console.log(getElementById(arr, id))
+
+
+/********************************************************************************
+       Check If an Element Exists in a 2D Array
+              Input:  [
+                            [1, 2],
+                            [3, 4],
+                            [5, 6]
+                      ]
+              search = 4
+              Output: Found at position (1,1)
+ ********************************************************************************/
+let array = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+const element = 7
+function isExist(arr, element) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      console.log(arr[i][j])
+      if (arr[i][j] === element) return `Found at position (${i},${j})`
+    }
+  }
+  return "Element doesn't exist"
+};
+
+console.log(isExist(array, element))
