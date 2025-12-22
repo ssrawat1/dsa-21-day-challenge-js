@@ -136,3 +136,22 @@ function isExist(arr, element) {
 };
 
 console.log(isExist(array, element))
+
+
+/********************************************************************************
+        Find the Minimum Value Using Linear Scan
+              Input: [9, 3, 5, 1, 7]
+              Output: 1
+ ********************************************************************************/
+
+function getMaximumValue(arr = [9, 3, 5, 1, 7]) {
+  let minVal = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < minVal) {
+      minVal = arr[i]
+    }
+  }
+  return { minVal }
+};
+
+console.log(getMaximumValue())
