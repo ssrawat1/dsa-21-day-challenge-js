@@ -170,3 +170,18 @@ function getMaxValue(arr = [4, 9, 2, 11, 6]) {
   return { maxValue }
 };
 console.log(getMaxValue())
+
+/********************************************************************************
+        Find the First Element Greater Than X
+               Input: [2, 5, 9, 12, 15], X = 10
+               Output: 12
+ ********************************************************************************/
+
+function getGreaterThanX(arr = [2, 5, 9, 12, 15], X = 10){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > X) return arr[i]
+
+  }
+  return "No element is greater than X"
+};
+console.log(getGreaterThanX())
