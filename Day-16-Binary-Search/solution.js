@@ -81,7 +81,7 @@ console.log(getLastOccurrence())
                  Output: 12
  ********************************************************************************/
 
-function getSmallestElement(arr = [
+function getSmallestElementThanTarget(arr = [
   3, 5, 8, 12, 17], search = -1) {
   let start = 0;
   let end = arr.length - 1;
@@ -101,4 +101,28 @@ function getSmallestElement(arr = [
   return result !== null ? { smallestElement: result } : "No element exists";
 }
 
-console.log(getSmallestElement())
+console.log(getSmallestElementThanTarget())
+
+/********************************************************************************
+      Find the Greatest Element Smaller Than a Given Value
+            Input: [3, 5, 8, 12, 17], search = 10
+            Output: 8
+ ********************************************************************************/
+
+function getGreatestElementSmallerThanGiven(arr = [3, 5, 8, 12, 17], search = 10) {
+  let start = 0;
+  let end = arr.length - 1;
+  let result = null;
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if (arr[mid] < search) {
+      result = arr[mid];
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+  }
+  return result !== null ? { greatestElement: result } : "No element exists";
+};
+
+console.log(getGreatestElementSmallerThanGiven())
