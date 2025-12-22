@@ -199,3 +199,18 @@ function isStrictlyIncreasing(arr = [1, 2, 3, 5, 4]) {
   return { isIncreasing: true }
 };
 console.log(isStrictlyIncreasing())
+
+
+/********************************************************************************
+      Find the First String That Starts With a Given Character
+                 Input: ["apple", "ball", "cat", "apply"], char = 'a'
+                 Output: "apple"
+ ********************************************************************************/
+
+function getStartWith(arr = ["apple", "ball", "cat", "apply"], char = 'a') {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][0] === char) return { string: arr[i] }
+  }
+  return "Does not exist"
+};
+console.log(getStartWith())
