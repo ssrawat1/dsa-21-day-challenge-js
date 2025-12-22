@@ -62,3 +62,48 @@ function findOccurrencesOfElements(arr = [1, 2, 2, 3, 2, 4], element = 2) {
 }
 
 console.log(findOccurrencesOfElements())
+
+/********************************************************************************
+       Find All Indexes Where the Element Appears
+               Input: [5, 7, 5, 9, 5], search = 5
+               Output: [0, 2, 4]
+ ********************************************************************************/
+
+function getAppearanceIndex(arr = [5, 7, 5, 9, 5], search = 5) {
+  let indexes = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === search) indexes.push(i)
+
+  }
+  return indexes
+}
+
+console.log(getAppearanceIndex())
+
+
+/********************************************************************************
+       Linear Search in Array of Objects
+              Input:  [
+                          { id: 1, name: "A" },
+                          { id: 2, name: "B" },
+                          { id: 3, name: "C" },
+                      ];
+              Search id = 2
+              Output: {id:2, name:"B"}
+ ********************************************************************************/
+
+let arr = [
+  { id: 1, name: "A" },
+  { id: 2, name: "B" },
+  { id: 3, name: "C" },
+];
+let id = 3
+
+function getElementById(arr, id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id === id) return arr[i]
+  }
+  throw new Error("Element doesn't exist")
+}
+
+console.log(getElementById(arr, id))
