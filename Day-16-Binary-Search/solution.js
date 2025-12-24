@@ -125,4 +125,48 @@ function getGreatestElementSmallerThanGiven(arr = [3, 5, 8, 12, 17], search = 10
   return result !== null ? { greatestElement: result } : "No element exists";
 };
 
-console.log(getGreatestElementSmallerThanGiven())
+console.log(getGreatestElementSmallerThanGiven());
+
+
+/********************************************************************************
+      Check If a Number Is a Perfect Square Using Binary Search
+               Input: N = 36
+               Output: true
+               For N = 37 → false.
+ ********************************************************************************/
+
+function isPerfectSquare(N = 36) {
+  // Handle edge cases
+  if (N < 0) return { result: false, reason: "Negative numbers cannot be perfect squares" };
+  if (N === 0 || N === 1) return { result: true, sqrt: N };
+
+  let start = 1;
+  let end = Math.floor(N / 2);
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    let square = mid * mid;
+
+    if (square === N) {
+      return { result: true, sqrt: mid };
+    } else if (square > N) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+
+  return { result: false };
+}
+
+/********************************************************************************
+      Find the Peak Element in a Mountain Array (Binary Search Variant)
+                Input: [1, 3, 5, 7, 6, 4, 2]
+                Output: Peak = 7 at index 3
+ ********************************************************************************/
+
+function getPeakElement(arr = [1, 3, 5, 7, 6, 4, 2]) {
+  
+ };
+
+console.log(getPeakElement())
