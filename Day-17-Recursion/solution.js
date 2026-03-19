@@ -1,68 +1,68 @@
-// /* First Solution: */
+/* First Solution: */
 
-// function digitsSum(digits) {
-//   if (digits === 0) return 0;
-//   let digit = digits % 10;
-//   digits = Math.floor(digits / 10)
-//   return digit + digitsSum(digits)
-// };
+function digitsSum(digits) {
+  if (digits === 0) return 0;
+  let digit = digits % 10;
+  digits = Math.floor(digits / 10)
+  return digit + digitsSum(digits)
+};
 
-// console.log(digitsSum(625));
+console.log(digitsSum(625));
 
 
-// /* Second Solution:*/
+/* Second Solution:*/
 
-// function reverseNumber(num, reverse = 0) {
-//   if (num === 0) return reverse;
-//   let lastDigit = num % 10;
-//   num = Math.floor(num / 10);
-//   reverse = reverse * 10 + lastDigit
-//   return reverseNumber(num, reverse)
-// };
+function reverseNumber(num, reverse = 0) {
+  if (num === 0) return reverse;
+  let lastDigit = num % 10;
+  num = Math.floor(num / 10);
+  reverse = reverse * 10 + lastDigit
+  return reverseNumber(num, reverse)
+};
 
-// console.log(reverseNumber(123))
+console.log(reverseNumber(123))
 
-// /* Third Solution: */
+/* Third Solution: */
 
-// function digitsProduct(num) {
-//   if (num === 0) return 1;
-//   let lastDigit = num % 10;
-//   num = Math.floor(num / 10);
-//   return lastDigit * digitsProduct(num)
-// };
+function digitsProduct(num) {
+  if (num === 0) return 1;
+  let lastDigit = num % 10;
+  num = Math.floor(num / 10);
+  return lastDigit * digitsProduct(num)
+};
 
-// console.log(digitsProduct(999));
+console.log(digitsProduct(999));
 
-// /* Fourth Solution: */
+/* Fourth Solution: */
 
-// function isPalindrome(num) {
-//   const reverseNum = reverseNumber(num);
-//   return num === reverseNum ? "Given Number is palindromic" : "Given Number is Not Palindromic"
-// };
+function isPalindrome(num) {
+  const reverseNum = reverseNumber(num);
+  return num === reverseNum ? "Given Number is palindromic" : "Given Number is Not Palindromic"
+};
 
-// console.log(isPalindrome(121))
+console.log(isPalindrome(121))
 
-// /* Fifth Solution: */
+/* Fifth Solution: */
 
-// function countZeros(num, count = 0) {
-//   if (num === 0) return count;
-//   let digit = num % 10;
-//   count = digit === 0 ? ++count : count;
-//   num = Math.floor(num / 10)
-//   return countZeros(num, count)
-// };
+function countZeros(num, count = 0) {
+  if (num === 0) return count;
+  let digit = num % 10;
+  count = digit === 0 ? ++count : count;
+  num = Math.floor(num / 10)
+  return countZeros(num, count)
+};
 
-// console.log(countZeros(102030));
+console.log(countZeros(102030));
 
-// /* Sixth Solution: */
+/* Sixth Solution: */
 
-// function naturalNumbers(start, end) {
-//   if (start > end) return;
-//   console.log(start)
-//   return naturalNumbers(++start, end)
-// };
+function naturalNumbers(start, end) {
+  if (start > end) return;
+  console.log(start)
+  return naturalNumbers(++start, end)
+};
 
-// naturalNumbers(3, 8)
+naturalNumbers(3, 8)
 
 /* Seventh Solution: */
 
