@@ -1,59 +1,59 @@
-// const obj = {
-//   name: "Sanjay",
-//   age: 25,
-//   address: {
-//     city: "Bathinda",
-//     state: "Punjab",
-//     country: {
-//       name: "India",
-//       code: "IN",
-//       continent: {
-//         name: "Asia",
-//         hemisphere: "North"
-//       }
-//     }
-//   },
-//   education: {
-//     school: "DAV",
-//     college: {
-//       name: "PEC",
-//       degree: {
-//         type: "B.Tech",
-//         branch: "CSE",
-//         grade: "A"
-//       }
-//     }
-//   }
+const obj = {
+  name: "Sanjay",
+  age: 25,
+  address: {
+    city: "Bathinda",
+    state: "Punjab",
+    country: {
+      name: "India",
+      code: "IN",
+      continent: {
+        name: "Asia",
+        hemisphere: "North"
+      }
+    }
+  },
+  education: {
+    school: "DAV",
+    college: {
+      name: "PEC",
+      degree: {
+        type: "B.Tech",
+        branch: "CSE",
+        grade: "A"
+      }
+    }
+  }
 
-// }
-// /* Print All Values in a Nested Object: */
-// function printAllValues(obj, values = []) {
-//   for (const key in obj) {
-//     if (typeof obj[key] === "object" && obj[key] !== null) {
-//       printAllValues(obj[key], values)
-//     } else {
-//       values.push(obj[key])
-//     }
-//   }
-//   return values
-// };
+}
+/* Print All Values in a Nested Object: */
+function printAllValues(obj, values = []) {
+  for (const key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      printAllValues(obj[key], values)
+    } else {
+      values.push(obj[key])
+    }
+  }
+  return values
+};
 
-// console.log(printAllValues(obj))
+console.log(printAllValues(obj))
 
-// /* 2nd ---> Solution */
+/* 2nd ---> Solution */
 
-// function keysCount(obj, count = 0) {
-//   for (const key in obj) {
-//     count += 1
-//     if (typeof obj[key] === "object") {
-//       console.log({ count })
-//       count += keysCount(obj[key]);
-//     }
-//   }
-//   return count
-// };
+function keysCount(obj, count = 0) {
+  for (const key in obj) {
+    count += 1
+    if (typeof obj[key] === "object") {
+      console.log({ count })
+      count += keysCount(obj[key]);
+    }
+  }
+  return count
+};
 
-// console.log(keysCount(obj))
+console.log(keysCount(obj))
 
 /* 3rd --> Solution */
 
@@ -235,7 +235,7 @@ function replaceValue(obj, replace, to) {
   return obj;
 }
 
-const obj = {
+console.log(replaceValue({
   name: "A",
   info: {
     age: 25,
@@ -243,9 +243,7 @@ const obj = {
       city: "Delhi"
     }
   }
-};
-
-console.log(replaceValue(obj, "Delhi", "Bangalore"));
+}, "Delhi", "Bangalore"));
 
 
 /* 10th ---> Solution */
